@@ -3,8 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Alfabetizando TEA — 8.000 novas atividades</title>
-<meta name="description" content="Aplicativo educacional inclusivo com 80 categorias e 8.000 novas atividades.">
+<meta name="theme-color" content="#6557f5">
+<title>Alfabetizando TEA — PRO</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,29 +15,51 @@
     <div>
       <span class="pill">Educação inclusiva • Alfabetização • Matemática • TEA</span>
       <h1>Alfabetizando TEA</h1>
-      <p class="lead">Nova expansão com <strong>80 categorias</strong> e <strong>8.000 novas atividades</strong> — 100 em cada categoria — além das áreas já construídas no projeto.</p>
-      <div class="actions"><a class="btn primary" href="#categorias">Explorar categorias</a><button class="btn secondary" id="surpresa">Surpreenda-me</button></div>
+      <p class="lead">Versão PRO com 8.000 atividades, perfil do aluno, adaptação automática de dificuldade, painel de progresso, modo tranquilo, acessibilidade e funcionamento instalável como aplicativo.</p>
+      <div class="actions">
+        <a class="btn primary" href="#categorias">Começar</a>
+        <button class="btn secondary" id="installBtn" hidden>Instalar aplicativo</button>
+      </div>
       <div class="author">Prof. Dr. Marcelo Marques de Araújo – UFPA</div>
     </div>
     <div class="hero-card">
-      <div class="hero-icons"><span>🔤</span><span>🧠</span><span>🔢</span><span>🛒</span></div>
-      <strong>80 categorias × 100 atividades</strong>
-      <small>Alfabetização, matemática, cognição, linguagem funcional, vida diária e trilhas pedagógicas.</small>
+      <div class="hero-icons"><span>🧠</span><span>📈</span><span>⚙️</span><span>📱</span></div>
+      <strong>Personalizado e adaptativo</strong>
+      <small>O aplicativo ajusta o nível conforme o desempenho e salva o progresso no dispositivo.</small>
     </div>
   </div>
 </header>
 
 <main class="wrap">
 <section class="stats">
-  <article><strong>8.000</strong><span>novas atividades</span></article>
+  <article><strong>8.000</strong><span>atividades</span></article>
   <article><strong>80</strong><span>categorias</span></article>
-  <article><strong>100</strong><span>por categoria</span></article>
   <article><strong>3</strong><span>níveis</span></article>
+  <article><strong>PWA</strong><span>instalável/offline</span></article>
+</section>
+
+<section class="control-panel">
+  <div class="panel-card">
+    <div class="panel-head"><div><span class="eyebrow">Perfil do aluno</span><h2>Quem está aprendendo?</h2></div><button class="btn ghost small" id="editProfile">Editar</button></div>
+    <div class="profile-line"><div class="avatar">👤</div><div><strong id="studentName">Aluno</strong><span id="studentGoal">Meta: alfabetização e matemática</span></div></div>
+  </div>
+
+  <div class="panel-card">
+    <div class="panel-head"><div><span class="eyebrow">Adaptação TEA</span><h2>Configurações</h2></div></div>
+    <div class="settings-grid">
+      <label><span>Modo tranquilo</span><input type="checkbox" id="calmMode" checked></label>
+      <label><span>Áudio automático</span><input type="checkbox" id="autoVoice"></label>
+      <label><span>Fonte grande</span><input type="checkbox" id="largeText"></label>
+      <label><span>Reduzir animações</span><input type="checkbox" id="reduceMotion" checked></label>
+      <label><span>2 alternativas</span><input type="checkbox" id="twoChoices"></label>
+      <label><span>Dificuldade adaptativa</span><input type="checkbox" id="adaptive" checked></label>
+    </div>
+  </div>
 </section>
 
 <section id="categorias">
   <div class="section-head">
-    <div><span class="eyebrow">Conteúdo ampliado</span><h2>Escolha uma categoria</h2></div>
+    <div><span class="eyebrow">Conteúdo</span><h2>Escolha uma categoria</h2></div>
     <label class="search">🔎 <input id="busca" type="search" placeholder="Pesquisar categoria..."></label>
   </div>
   <div class="filters">
@@ -51,8 +75,8 @@
 </section>
 
 <section id="pratica" class="practice">
-  <div class="section-head practice-head">
-    <div><span class="eyebrow" id="grupoAtual">Alfabetização</span><h2 id="categoriaAtual">Rimas</h2><p id="skillAtual" class="skill">Identificar palavras que rimam</p></div>
+  <div class="section-head">
+    <div><span class="eyebrow" id="grupoAtual">Alfabetização</span><h2 id="categoriaAtual">Rimas</h2><p class="skill" id="skillAtual">Habilidade</p></div>
     <div class="level-picker">
       <button class="level active" data-level="Inicial">Inicial</button>
       <button class="level" data-level="Intermediário">Intermediário</button>
@@ -61,7 +85,7 @@
   </div>
   <div class="activity-box">
     <div class="progressline"><div id="bar"></div></div>
-    <div class="activity-meta"><span id="contador">Atividade 1 de 100</span><span id="metaNivel">Nível Inicial</span></div>
+    <div class="activity-meta"><span id="contador">Atividade 1 de 100</span><span id="adaptiveLabel">Adaptativo ativo</span></div>
     <div class="prompt">
       <div class="big-emoji" id="emoji">🎵</div>
       <div><span class="mini">Leia, observe e responda</span><h3 id="pergunta">Pergunta</h3></div>
@@ -76,21 +100,36 @@
   </div>
 </section>
 
-<section class="features">
-  <article><span>🧘</span><h3>Modo tranquilo</h3><p>Uma tarefa por vez e poucos estímulos simultâneos.</p></article>
-  <article><span>🔊</span><h3>Leitura por voz</h3><p>Enunciados lidos em português do Brasil.</p></article>
-  <article><span>🎯</span><h3>3 níveis</h3><p>Inicial, Intermediário e Avançado em todas as categorias.</p></article>
-  <article><span>📱</span><h3>Responsivo</h3><p>Uso em computador, tablet e celular.</p></article>
-</section>
-
 <section class="dashboard">
-  <div><span class="eyebrow">Meu progresso</span><h2>Desempenho neste dispositivo</h2></div>
-  <div class="dash-cards"><article><strong id="acertos">0</strong><span>acertos</span></article><article><strong id="respondidas">0</strong><span>respondidas</span></article><article><strong id="percentual">0%</strong><span>aproveitamento</span></article></div>
+  <div class="section-head"><div><span class="eyebrow">Painel de progresso</span><h2>Desempenho</h2></div><button class="btn ghost" id="printReport">🖨️ Imprimir relatório</button></div>
+  <div class="dash-cards">
+    <article><strong id="acertos">0</strong><span>acertos</span></article>
+    <article><strong id="respondidas">0</strong><span>respondidas</span></article>
+    <article><strong id="percentual">0%</strong><span>aproveitamento</span></article>
+    <article><strong id="streak">0</strong><span>sequência de acertos</span></article>
+  </div>
+  <div class="progress-table-wrap">
+    <table id="progressTable"><thead><tr><th>Categoria</th><th>Respondidas</th><th>Acertos</th><th>%</th></tr></thead><tbody></tbody></table>
+  </div>
+  <div class="recommendation" id="recommendation">Faça algumas atividades para receber recomendações.</div>
   <button class="link-btn" id="zerar">Zerar progresso</button>
 </section>
 </main>
 
-<footer><strong>Alfabetizando TEA</strong><span>Prof. Dr. Marcelo Marques de Araújo – UFPA</span></footer>
+<div class="modal" id="profileModal" hidden>
+  <div class="modal-card">
+    <h2>Perfil do aluno</h2>
+    <label>Nome <input id="profileName" maxlength="30" placeholder="Nome ou apelido"></label>
+    <label>Objetivo principal
+      <select id="profileGoal">
+        <option>Alfabetização</option><option>Matemática</option><option>Comunicação</option><option>Cognição e atenção</option><option>Aprendizagem geral</option>
+      </select>
+    </label>
+    <div class="modal-actions"><button class="btn ghost" id="closeProfile">Cancelar</button><button class="btn primary" id="saveProfile">Salvar</button></div>
+  </div>
+</div>
+
+<footer><strong>Alfabetizando TEA</strong><span>Recurso educacional de apoio pedagógico • Prof. Dr. Marcelo Marques de Araújo – UFPA</span></footer>
 <script src="script.js"></script>
 </body>
 </html>
