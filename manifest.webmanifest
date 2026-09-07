@@ -1,10 +1,11 @@
 {
-  "name": "Alfabetizando TEA ULTRA",
+  "name": "Alfabetizando TEA ULTRA 22K",
   "short_name": "AlfabetizandoTEA",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#f6f7fb",
   "theme_color": "#6557f5",
+  "description": "Plataforma adaptativa com 22.000 atividades.",
   "icons": [
     {
       "src": "icon.svg",
