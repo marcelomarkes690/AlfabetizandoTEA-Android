@@ -1,162 +1,127 @@
 
-const categorias = [
- {id:'letras',icon:'🔤',title:'Letras e sons',group:'Alfabetização',desc:'Reconhecimento de letras, sons iniciais e consciência fonológica.'},
- {id:'silabas',icon:'🧩',title:'Sílabas',group:'Alfabetização',desc:'Sílabas simples e complexas, segmentação e formação de palavras.'},
- {id:'hip_pre',icon:'🖍️',title:'Hipótese pré-silábica',group:'Alfabetização',desc:'Quantidade, variedade de letras, nome próprio e relação entre desenho e escrita.'},
- {id:'hip_sil',icon:'🔡',title:'Hipótese silábica',group:'Alfabetização',desc:'Correspondência entre partes faladas e registros gráficos.'},
- {id:'hip_silalf',icon:'🧱',title:'Silábico-alfabética',group:'Alfabetização',desc:'Transição entre registro silábico e alfabético.'},
- {id:'hip_alf',icon:'✍️',title:'Hipótese alfabética',group:'Alfabetização',desc:'Escrita convencional, ortografia e segmentação.'},
- {id:'leitura',icon:'📖',title:'Leitura',group:'Linguagem',desc:'Palavras, frases, pequenos textos e fluência.'},
- {id:'interpretacao',icon:'💬',title:'Interpretação',group:'Linguagem',desc:'Compreensão literal, inferência, sequência e ideia principal.'},
- {id:'ortografia',icon:'📝',title:'Ortografia',group:'Linguagem',desc:'Regularidades, dígrafos, encontros consonantais e pares fonêmicos.'},
- {id:'vocabulario',icon:'🗂️',title:'Vocabulário',group:'Linguagem',desc:'Significados, categorias semânticas, sinônimos e antônimos.'},
- {id:'frases',icon:'🧾',title:'Frases e textos',group:'Linguagem',desc:'Ordenação, pontuação, coesão e produção de frases.'},
- {id:'caca',icon:'🔎',title:'Caça-palavras',group:'Linguagem',desc:'Busca visual de palavras por temas e níveis.'},
- {id:'memoria',icon:'🃏',title:'Jogo da memória',group:'Cognição',desc:'Pares de letras, sílabas, palavras e conceitos.'},
- {id:'atencao',icon:'🎯',title:'Atenção e foco',group:'Cognição',desc:'Discriminação visual, seleção, sequência e foco sustentado.'},
- {id:'sequencia',icon:'➡️',title:'Sequências e padrões',group:'Cognição',desc:'Ordem lógica, padrões visuais, numéricos e linguísticos.'},
- {id:'numeros',icon:'🔢',title:'Números e contagem',group:'Matemática',desc:'Reconhecimento, contagem, comparação e sequência numérica.'},
- {id:'adicao',icon:'➕',title:'Adição',group:'Matemática',desc:'Cálculo mental, composição e situações-problema.'},
- {id:'subtracao',icon:'➖',title:'Subtração',group:'Matemática',desc:'Retirada, diferença, comparação e problemas.'},
- {id:'mult',icon:'✖️',title:'Multiplicação',group:'Matemática',desc:'Adição de parcelas iguais, grupos e fatos básicos.'},
- {id:'div',icon:'➗',title:'Divisão',group:'Matemática',desc:'Repartição equitativa e formação de grupos.'},
- {id:'formas',icon:'📐',title:'Geometria',group:'Matemática',desc:'Formas, lados, vértices, posição e orientação espacial.'},
- {id:'medidas',icon:'📏',title:'Grandezas e medidas',group:'Matemática',desc:'Comprimento, massa, capacidade e comparação.'},
- {id:'tempo',icon:'⏰',title:'Tempo e calendário',group:'Matemática',desc:'Horas, dias, meses, duração e rotina.'},
- {id:'dinheiro',icon:'💰',title:'Sistema monetário',group:'Matemática',desc:'Valores, troco e situações de compra.'},
- {id:'dados',icon:'📊',title:'Tabelas e gráficos',group:'Matemática',desc:'Leitura, comparação e interpretação de dados.'}
+const words=[
+ {w:'GATO',e:'🐱'},{w:'PATO',e:'🦆'},{w:'BOLA',e:'⚽'},{w:'CASA',e:'🏠'},{w:'SAPO',e:'🐸'},
+ {w:'RATO',e:'🐭'},{w:'PEIXE',e:'🐟'},{w:'FLOR',e:'🌸'},{w:'LUA',e:'🌙'},{w:'SOL',e:'☀️'},
+ {w:'BANANA',e:'🍌'},{w:'MAÇÃ',e:'🍎'},{w:'UVA',e:'🍇'},{w:'LIVRO',e:'📚'},{w:'CARRO',e:'🚗'}
 ];
-
-const palavras = [
- ['CASA','🏠'],['GATO','🐱'],['PATO','🦆'],['BOLA','⚽'],['MALA','🧳'],['SAPO','🐸'],['FACA','🔪'],
- ['BOCA','👄'],['DADO','🎲'],['LUA','🌙'],['SOL','☀️'],['FLOR','🌸'],['PÃO','🍞'],['PEIXE','🐟'],['CHAVE','🔑'],
- ['RATO','🐭'],['RUA','🛣️'],['CARRO','🚗'],['NAVIO','🚢'],['BANANA','🍌'],['JANELA','🪟'],['ESCOLA','🏫'],
- ['LIVRO','📚'],['CADERNO','📒'],['CADEIRA','🪑'],['MESA','🪵'],['LEITE','🥛'],['UVA','🍇'],['MAÇÃ','🍎'],['OVO','🥚']
+const games=[
+ {id:'assoc',icon:'🧩',title:'Associação imagem-palavra',desc:'Observe a imagem e selecione a palavra correta.',tag:'Alfabetização'},
+ {id:'mem',icon:'🃏',title:'Jogo da memória',desc:'Encontre pares de imagem e palavra.',tag:'Memória'},
+ {id:'caca',icon:'🔎',title:'Caça-palavras',desc:'Localize uma palavra em uma grade de letras.',tag:'Atenção'},
+ {id:'ordem',icon:'🔤',title:'Monte a palavra',desc:'Toque nas partes na ordem correta para formar a palavra.',tag:'Escrita'},
+ {id:'seq',icon:'➡️',title:'Sequências',desc:'Descubra o próximo item de uma sequência.',tag:'Cognição'},
+ {id:'math',icon:'🔢',title:'Desafio matemático',desc:'Resolva operações e situações simples.',tag:'Matemática'}
 ];
+const legacy=['Letras e sons','Sílabas','Pré-silábica','Silábica','Silábico-alfabética','Alfabética','Leitura','Interpretação','Ortografia','Vocabulário','Frases e textos','Caça-palavras','Memória','Atenção','Sequências','Números','Adição','Subtração','Multiplicação','Divisão','Geometria','Medidas','Tempo','Dinheiro','Tabelas e gráficos'];
+let level='Inicial', current=games[0], round=0, score=0, memoryState={};
 
-const levelFactor = {Inicial:0,Intermediário:1,Avançado:2};
-let nivel='Inicial', cat=categorias[0], idx=0;
-let acertos=Number(localStorage.getItem('atea_acertos')||0), respondidas=Number(localStorage.getItem('atea_resp')||0);
-const cards=document.getElementById('cards'), busca=document.getElementById('busca');
+const gameCards=document.getElementById('gameCards'), gameArea=document.getElementById('gameArea'), feedback=document.getElementById('feedback');
+document.getElementById('legacyGrid').innerHTML=legacy.map(x=>`<span>${x}</span>`).join('');
 
-function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
-function pick(arr,seed){return arr[seed%arr.length]}
-function shuffle(arr,seed){let a=[...arr];for(let i=a.length-1;i>0;i--){seed=(seed*1664525+1013904223)>>>0;let j=seed%(i+1);[a[i],a[j]]=[a[j],a[i]]}return a}
-function distractWord(word,seed){
- const letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
- let chars=word.split(''); let p=seed%chars.length; chars[p]=letters[(seed>>3)%letters.length];
- const x=chars.join(''); return x===word?word+'A':x;
-}
+function rand(n){return Math.floor(Math.random()*n)}
+function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){let j=rand(i+1);[a[i],a[j]]=[a[j],a[i]]}return a}
+function say(t){if('speechSynthesis'in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='pt-BR';speechSynthesis.speak(u)}}
+function setFeedback(text,ok){feedback.textContent=text;feedback.className='feedback '+(ok?'ok':'no')}
+function updateScore(){document.getElementById('scoreLabel').textContent=`Acertos: ${score}`}
 
-function atividade(c,i,lev){
- const f=levelFactor[lev], seed=hash(c.id+'-'+i+'-'+lev), [w,e]=pick(palavras,seed);
- const [w2]=pick(palavras,seed+7), [w3]=pick(palavras,seed+13);
- let q='',opts=[],ans='',emoji=c.icon;
- const n1=1+(seed%((f+1)*10+9)), n2=1+((seed>>5)%((f+1)*8+7));
- switch(c.id){
-  case 'letras': q=`Qual é a primeira letra de ${w}?`; ans=w[0]; opts=shuffle([ans,pick('BCDFGHJKLMNPQRSTVXZ'.split(''),seed+2),pick('AEIOU'.split(''),seed+4)],seed); emoji=e; break;
-  case 'silabas': {
-    const s=w.length>4?w.slice(0,2):w.slice(0,1); q=`Qual opção começa como ${w}?`; ans=w;
-    opts=shuffle([w,w2,w3],seed); emoji=e; break;
-  }
-  case 'hip_pre': q=`Qual escrita pode representar a palavra ${w}?`; ans=w; opts=shuffle([w,'AAA','XYZ'],seed); emoji=e; break;
-  case 'hip_sil': q=`Quantas partes faladas você percebe em ${w}?`; ans=String(Math.max(1,Math.round(w.length/2.4))); opts=shuffle([ans,String(+ans+1),String(Math.max(1,+ans-1))],seed); emoji=e; break;
-  case 'hip_silalf': q=`Complete a palavra: ${w.slice(0,Math.max(1,w.length-2))}__`; ans=w.slice(-2); opts=shuffle([ans,distractWord(ans,seed),pick(['RA','TA','CA','LA'],seed)],seed); emoji=e; break;
-  case 'hip_alf': q=`Qual escrita está correta?`; ans=w; opts=shuffle([w,distractWord(w,seed+3),distractWord(w,seed+9)],seed); emoji=e; break;
-  case 'leitura': q=`Leia e escolha a palavra correspondente à imagem.`; ans=w; opts=shuffle([w,w2,w3],seed); emoji=e; break;
-  case 'interpretacao': {
-    const nomes=['Ana','Bia','Caio','Davi','Lia']; const nome=pick(nomes,seed); const objeto=pick(['livro','bola','caderno','brinquedo'],seed+2);
-    q=`${nome} guardou o ${objeto} depois de usar. O que ${nome} fez depois de usar o objeto?`; ans=`Guardou o ${objeto}`;
-    opts=shuffle([ans,`Perdeu o ${objeto}`,`Quebrou o ${objeto}`],seed); emoji='📘'; break;
-  }
-  case 'ortografia': {
-    const pares=[['CH','X'],['RR','R'],['SS','S'],['M','N'],['P','B'],['D','T']]; const [a,b]=pick(pares,seed);
-    q=`Qual opção apresenta a escrita correta?`; ans=w; opts=shuffle([w,distractWord(w,seed+5),distractWord(w,seed+11)],seed); emoji='📝'; break;
-  }
-  case 'vocabulario': {
-    const sets=[['feliz','contente','triste'],['rápido','veloz','lento'],['grande','enorme','pequeno'],['bonito','belo','feio']];
-    const s=pick(sets,seed); q=`Qual palavra tem sentido parecido com "${s[0]}"?`; ans=s[1]; opts=shuffle([s[1],s[2],pick(['longe','ontem','azul'],seed)],seed); emoji='🗂️'; break;
-  }
-  case 'frases': {
-    const ss=[['A menina lê um livro.','menina livro lê A.','Livro um a menina.'],['O gato dorme na cadeira.','cadeira gato na dorme.','Dorme o na gato.'],['Pedro joga bola no pátio.','bola Pedro no joga.','Pátio joga Pedro no bola.']];
-    const s=pick(ss,seed); q='Qual frase está organizada corretamente?'; ans=s[0]; opts=shuffle(s,seed); emoji='🧾'; break;
-  }
-  case 'caca': q=`Encontre a palavra-alvo: ${w}`; ans=w; opts=shuffle([w,distractWord(w,seed+1),distractWord(w,seed+2)],seed); emoji='🔎'; break;
-  case 'memoria': q=`Qual palavra combina com a imagem mostrada?`; ans=w; opts=shuffle([w,w2,w3],seed); emoji=e; break;
-  case 'atencao': {
-    const alvo=pick(['🔵','🔺','⭐','🟩'],seed); const outro=pick(['🟣','⬛','❤️','🟨'],seed+1); q=`Qual símbolo é igual ao modelo ${alvo}?`; ans=alvo; opts=shuffle([alvo,outro,pick(['🔷','🔶','⚫'],seed+2)],seed); emoji='🎯'; break;
-  }
-  case 'sequencia': {
-    let a=1+(seed%5), passo=1+(seed%((f+1)*3)); q=`Complete a sequência: ${a}, ${a+passo}, ${a+2*passo}, __`; ans=String(a+3*passo);
-    opts=shuffle([ans,String(a+4*passo),String(a+2*passo+1)],seed); emoji='➡️'; break;
-  }
-  case 'numeros': q=`Qual número vem depois de ${n1}?`; ans=String(n1+1); opts=shuffle([ans,String(n1),String(n1+2)],seed); emoji='🔢'; break;
-  case 'adicao': q=`Quanto é ${n1} + ${n2}?`; ans=String(n1+n2); opts=shuffle([ans,String(n1+n2+1),String(Math.max(0,n1+n2-1))],seed); emoji='➕'; break;
-  case 'subtracao': {let a=Math.max(n1,n2),b=Math.min(n1,n2);q=`Quanto é ${a} − ${b}?`;ans=String(a-b);opts=shuffle([ans,String(a-b+1),String(Math.max(0,a-b-1))],seed);emoji='➖';break}
-  case 'mult': {let a=1+(seed%(f?10:5)),b=1+((seed>>3)%(f?10:5));q=`Quanto é ${a} × ${b}?`;ans=String(a*b);opts=shuffle([ans,String(a*b+a),String(Math.max(0,a*b-b))],seed);emoji='✖️';break}
-  case 'div': {let b=1+(seed%(f?9:5)),res=1+((seed>>4)%(f?9:5)),a=b*res;q=`Quanto é ${a} ÷ ${b}?`;ans=String(res);opts=shuffle([ans,String(res+1),String(Math.max(1,res-1))],seed);emoji='➗';break}
-  case 'formas': {
-    const s=pick([['Triângulo','3 lados'],['Quadrado','4 lados iguais'],['Círculo','nenhum lado reto'],['Retângulo','4 lados']],seed);
-    q=`Qual característica corresponde a ${s[0]}?`;ans=s[1];opts=shuffle([s[1],'5 lados','apenas 1 lado'],seed);emoji='📐';break;
-  }
-  case 'medidas': {
-    const s=pick([['Qual unidade é mais adequada para medir uma mesa?','centímetro','litro','quilograma'],['Qual unidade usamos para medir massa?','quilograma','hora','metro'],['Qual unidade usamos para líquidos?','litro','metro','grau']],seed);
-    q=s[0];ans=s[1];opts=shuffle([s[1],s[2],s[3]],seed);emoji='📏';break;
-  }
-  case 'tempo': {
-    const hora=1+(seed%11); q=`Se agora são ${hora} horas e passa 1 hora, que horas serão?`; ans=String(hora+1)+' horas'; opts=shuffle([ans,String(hora)+' horas',String(hora+2)+' horas'],seed);emoji='⏰';break;
-  }
-  case 'dinheiro': {
-    let a=1+(seed%(f?50:10)),b=1+((seed>>5)%(f?20:5)); q=`Você tem R$ ${a} e recebe mais R$ ${b}. Quanto terá?`; ans=`R$ ${a+b}`;opts=shuffle([ans,`R$ ${a+b+1}`,`R$ ${Math.max(0,a+b-1)}`],seed);emoji='💰';break;
-  }
-  case 'dados': {
-    const a=1+(seed%9),b=1+((seed>>5)%9),cc=1+((seed>>9)%9); const vals=[['Azul',a],['Verde',b],['Amarelo',cc]].sort((x,y)=>y[1]-x[1]);
-    q=`Em uma pesquisa: Azul=${a}, Verde=${b}, Amarelo=${cc}. Qual teve maior quantidade?`; ans=vals[0][0];opts=shuffle(['Azul','Verde','Amarelo'],seed);emoji='📊';break;
-  }
- }
- return {q,opts,ans,emoji};
-}
-
-function renderCards(){
- const termo=busca.value.toLowerCase(), grupo=document.querySelector('.filter.active').dataset.group;
- cards.innerHTML='';
- categorias.filter(c=>(grupo==='Todas'||c.group===grupo)&&(c.title+' '+c.desc+' '+c.group).toLowerCase().includes(termo)).forEach(c=>{
-   const el=document.createElement('article');
-   el.innerHTML=`<div class="card-icon">${c.icon}</div><div class="card-title">${c.title}</div><div class="card-desc">${c.desc}</div><div class="card-footer"><span class="tag">${c.group}</span><span class="count">200 atividades</span></div>`;
-   el.onclick=()=>{cat=c;idx=0;renderAtividade();document.getElementById('pratica').scrollIntoView({behavior:'smooth'})};
-   cards.appendChild(el);
+function renderGameCards(){
+ gameCards.innerHTML='';
+ games.forEach(g=>{
+  const el=document.createElement('article');
+  el.innerHTML=`<div class="game-icon">${g.icon}</div><div class="game-title">${g.title}</div><div class="game-desc">${g.desc}</div><span class="game-tag">${g.tag}</span>`;
+  el.onclick=()=>{current=g;round=0;renderGame();document.getElementById('play').scrollIntoView({behavior:'smooth'})};
+  gameCards.appendChild(el);
  });
 }
-function renderAtividade(){
- const a=atividade(cat,idx,nivel);
- document.getElementById('categoriaAtual').textContent=cat.title;
- document.getElementById('grupoAtual').textContent=cat.group;
- document.getElementById('tituloAtividade').textContent=`${nivel} — atividade ${idx+1}`;
- document.getElementById('contador').textContent=`Atividade ${idx+1} de 200`;
- document.getElementById('bar').style.width=`${((idx+1)/200)*100}%`;
- document.getElementById('emoji').textContent=a.emoji;
- document.getElementById('pergunta').textContent=a.q;
- const ops=document.getElementById('opcoes'); ops.innerHTML='';
- const fb=document.getElementById('feedback'); fb.textContent='';fb.className='feedback';
- a.opts.forEach(o=>{const b=document.createElement('button');b.className='option';b.textContent=o;b.onclick=()=>responder(b,o,a.ans);ops.appendChild(b)});
+function renderGame(){
+ feedback.textContent='';feedback.className='feedback';
+ document.getElementById('gameEyebrow').textContent=current.tag;
+ document.getElementById('gameTitle').textContent=current.title;
+ if(current.id==='assoc')renderAssoc();
+ if(current.id==='mem')renderMemory();
+ if(current.id==='caca')renderCaca();
+ if(current.id==='ordem')renderOrdem();
+ if(current.id==='seq')renderSeq();
+ if(current.id==='math')renderMath();
 }
-function responder(btn,r,c){
- document.querySelectorAll('.option').forEach(x=>x.disabled=true);
- respondidas++;
- if(r===c){btn.classList.add('correct');document.getElementById('feedback').textContent='Muito bem! Resposta correta.';document.getElementById('feedback').classList.add('ok');acertos++}
- else{btn.classList.add('wrong');[...document.querySelectorAll('.option')].find(x=>x.textContent===c)?.classList.add('correct');document.getElementById('feedback').textContent=`A resposta correta é: ${c}`;document.getElementById('feedback').classList.add('no')}
- localStorage.setItem('atea_acertos',acertos);localStorage.setItem('atea_resp',respondidas);updateDash();
+function renderAssoc(){
+ const target=words[rand(words.length)], others=shuffle(words.filter(x=>x.w!==target.w)).slice(0,2);
+ gameArea.innerHTML=`<div class="prompt-center"><div class="prompt-emoji">${target.e}</div><div class="instruction">Qual palavra corresponde à imagem?</div><div class="choice-grid">${shuffle([target,...others]).map(x=>`<button class="choice" data-a="${x.w}">${x.w}</button>`).join('')}</div></div>`;
+ gameArea.querySelectorAll('.choice').forEach(b=>b.onclick=()=>{
+   gameArea.querySelectorAll('.choice').forEach(x=>x.disabled=true);
+   if(b.dataset.a===target.w){b.classList.add('correct');setFeedback('Muito bem! Resposta correta.',true);score++}
+   else{b.classList.add('wrong');[...gameArea.querySelectorAll('.choice')].find(x=>x.dataset.a===target.w).classList.add('correct');setFeedback(`A resposta correta é ${target.w}.`,false)}
+   updateScore();
+ });
 }
-function updateDash(){
- document.getElementById('acertos').textContent=acertos;document.getElementById('respondidas').textContent=respondidas;
- document.getElementById('percentual').textContent=respondidas?Math.round(acertos/respondidas*100)+'%':'0%';
+function renderMemory(){
+ const pairs=level==='Inicial'?3:level==='Intermediário'?4:6;
+ const chosen=shuffle(words).slice(0,pairs);
+ let cards=[];
+ chosen.forEach((x,i)=>{cards.push({k:i,t:x.e});cards.push({k:i,t:x.w})});
+ cards=shuffle(cards);memoryState={first:null,locked:false,matched:0};
+ gameArea.innerHTML=`<div class="instruction">Encontre os pares de imagem e palavra.</div><div class="memory-grid">${cards.map((c,i)=>`<button class="memory-card covered" data-i="${i}" data-k="${c.k}">${c.t}</button>`).join('')}</div>`;
+ gameArea.querySelectorAll('.memory-card').forEach(b=>b.onclick=()=>flipMemory(b,pairs));
 }
-busca.oninput=renderCards;
-document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderCards()});
-document.querySelectorAll('.level').forEach(b=>b.onclick=()=>{document.querySelectorAll('.level').forEach(x=>x.classList.remove('active'));b.classList.add('active');nivel=b.dataset.level;idx=0;renderAtividade()});
-document.getElementById('proxima').onclick=()=>{idx=(idx+1)%200;renderAtividade()};
-document.getElementById('anterior').onclick=()=>{idx=(idx+199)%200;renderAtividade()};
-document.getElementById('surpresaTopo').onclick=()=>{cat=pick(categorias,Date.now());idx=Date.now()%200;renderAtividade();document.getElementById('pratica').scrollIntoView({behavior:'smooth'})};
-document.getElementById('ouvir').onclick=()=>{if('speechSynthesis'in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(document.getElementById('pergunta').textContent);u.lang='pt-BR';speechSynthesis.speak(u)}else alert('Leitura por voz indisponível neste navegador.')};
-document.getElementById('zerar').onclick=()=>{localStorage.removeItem('atea_acertos');localStorage.removeItem('atea_resp');acertos=0;respondidas=0;updateDash()};
-renderCards();renderAtividade();updateDash();
+function flipMemory(b,pairs){
+ if(memoryState.locked||b.classList.contains('matched')||!b.classList.contains('covered'))return;
+ b.classList.remove('covered');
+ if(!memoryState.first){memoryState.first=b;return}
+ if(memoryState.first.dataset.k===b.dataset.k){
+  memoryState.first.classList.add('matched');b.classList.add('matched');memoryState.first=null;memoryState.matched++;score++;updateScore();
+  if(memoryState.matched===pairs)setFeedback('Parabéns! Você encontrou todos os pares.',true);
+ }else{
+  memoryState.locked=true;const first=memoryState.first;
+  setTimeout(()=>{first.classList.add('covered');b.classList.add('covered');memoryState.first=null;memoryState.locked=false},650)
+ }
+}
+function renderCaca(){
+ const target=words.filter(x=>x.w.length<=8)[rand(words.filter(x=>x.w.length<=8).length)].w;
+ const size=8, letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ'; let grid=Array(size*size).fill('').map(()=>letters[rand(letters.length)]);
+ const row=rand(size), start=rand(size-target.length+1); for(let i=0;i<target.length;i++)grid[row*size+start+i]=target[i];
+ gameArea.innerHTML=`<div class="instruction">Encontre a palavra <strong>${target}</strong> na grade e toque nas letras em sequência.</div><div class="wordsearch">${grid.map((l,i)=>`<button class="wordcell" data-i="${i}">${l}</button>`).join('')}</div>`;
+ let selected='';
+ gameArea.querySelectorAll('.wordcell').forEach(b=>b.onclick=()=>{
+  b.classList.toggle('selected');
+  selected=[...gameArea.querySelectorAll('.wordcell.selected')].map(x=>x.textContent).join('');
+  if(selected===target){setFeedback(`Muito bem! Você encontrou ${target}.`,true);score++;updateScore()}
+ });
+}
+function renderOrdem(){
+ const t=words[rand(words.length)], chunk=level==='Inicial'?1:level==='Intermediário'?2:2;
+ let parts=[];for(let i=0;i<t.w.length;i+=chunk)parts.push(t.w.slice(i,i+chunk));
+ let built=[];
+ gameArea.innerHTML=`<div class="prompt-center"><div class="prompt-emoji">${t.e}</div><div class="instruction">Monte a palavra correspondente à imagem.</div><div class="dropzone" id="drop">Toque nas partes abaixo.</div><div class="tiles">${shuffle(parts).map((p,i)=>`<button class="tile" data-p="${p}">${p}</button>`).join('')}</div></div>`;
+ gameArea.querySelectorAll('.tile').forEach(b=>b.onclick=()=>{
+  if(b.disabled)return;b.disabled=true;b.classList.add('selected');built.push(b.dataset.p);document.getElementById('drop').textContent=built.join('');
+  if(built.length===parts.length){
+   if(built.join('')===t.w){setFeedback('Excelente! Palavra formada corretamente.',true);score++;updateScore()}
+   else setFeedback(`A palavra correta é ${t.w}.`,false)
+  }
+ });
+}
+function renderSeq(){
+ let step=level==='Inicial'?1:level==='Intermediário'?2:rand(3)+2,start=rand(6)+1;
+ const arr=[start,start+step,start+2*step],ans=start+3*step;
+ gameArea.innerHTML=`<div class="instruction">Qual número completa a sequência?</div><div class="sequence-grid">${arr.map(x=>`<div class="seq-card">${x}</div>`).join('')}<div class="seq-card">?</div></div><div class="choice-grid" style="margin-top:16px">${shuffle([ans,ans+step,Math.max(0,ans-step)]).map(x=>`<button class="choice" data-a="${x}">${x}</button>`).join('')}</div>`;
+ gameArea.querySelectorAll('.choice').forEach(b=>b.onclick=()=>{
+  gameArea.querySelectorAll('.choice').forEach(x=>x.disabled=true);
+  if(+b.dataset.a===ans){b.classList.add('correct');setFeedback('Correto!',true);score++;updateScore()}else{b.classList.add('wrong');setFeedback(`A resposta correta é ${ans}.`,false)}
+ });
+}
+function renderMath(){
+ let a,b,op,ans;
+ if(level==='Inicial'){a=rand(10)+1;b=rand(8)+1;op=rand(2)?'+':'−';ans=op==='+'?a+b:Math.max(a,b)-Math.min(a,b);if(op==='−'&&a<b)[a,b]=[b,a]}
+ else if(level==='Intermediário'){a=rand(20)+2;b=rand(10)+1;op=['+','−','×'][rand(3)];ans=op==='+'?a+b:op==='−'?a-b:a*b}
+ else{b=rand(8)+2;ans=rand(8)+2;a=b*ans;op='÷'}
+ gameArea.innerHTML=`<div class="prompt-center"><div class="prompt-emoji">🔢</div><div class="instruction">Resolva: <strong>${a} ${op} ${b}</strong></div><div class="choice-grid">${shuffle([ans,ans+1,Math.max(0,ans-1)]).map(x=>`<button class="choice" data-a="${x}">${x}</button>`).join('')}</div></div>`;
+ gameArea.querySelectorAll('.choice').forEach(bu=>bu.onclick=()=>{
+  gameArea.querySelectorAll('.choice').forEach(x=>x.disabled=true);
+  if(+bu.dataset.a===ans){bu.classList.add('correct');setFeedback('Muito bem!',true);score++;updateScore()}else{bu.classList.add('wrong');setFeedback(`A resposta correta é ${ans}.`,false)}
+ });
+}
+document.querySelectorAll('.level').forEach(b=>b.onclick=()=>{document.querySelectorAll('.level').forEach(x=>x.classList.remove('active'));b.classList.add('active');level=b.dataset.level;renderGame()});
+document.getElementById('nextRound').onclick=()=>{round++;renderGame()};
+document.getElementById('ouvir').onclick=()=>say(document.querySelector('.instruction')?.innerText||current.desc);
+document.getElementById('surpresa').onclick=()=>{current=games[rand(games.length)];renderGame();document.getElementById('play').scrollIntoView({behavior:'smooth'})};
+renderGameCards();renderGame();updateScore();

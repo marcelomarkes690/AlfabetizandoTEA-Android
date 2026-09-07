@@ -3,115 +3,88 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Alfabetizando TEA — Completo</title>
-  <meta name="description" content="Aplicativo educacional inclusivo com 5.000 atividades de alfabetização, linguagem, atenção, memória e matemática." />
+  <title>Alfabetizando TEA — Interativo</title>
+  <meta name="description" content="Aplicativo educacional inclusivo com atividades interativas de alfabetização, cognição e matemática." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="pill">Educação inclusiva • Alfabetização • Matemática</span>
+      <span class="pill">Educação inclusiva • Alfabetização • Cognição • Matemática</span>
       <h1>Alfabetizando TEA</h1>
-      <p class="lead">5.000 atividades organizadas em 25 categorias, com três níveis de dificuldade, leitura por voz, progresso local e navegação simples para computador e celular.</p>
+      <p class="lead">Versão interativa com jogos reais, associação por toque, memória, caça-palavras, sequência, operações e atividades graduadas por nível.</p>
       <div class="actions">
-        <a class="btn primary" href="#categorias">Começar atividades</a>
-        <button class="btn secondary" id="surpresaTopo">Surpreenda-me</button>
+        <a class="btn primary" href="#jogos">Explorar jogos</a>
+        <button class="btn secondary" id="surpresa">Surpreenda-me</button>
       </div>
       <div class="author">Prof. Dr. Marcelo Marques de Araújo – UFPA</div>
     </div>
     <div class="hero-card">
-      <div class="hero-icons"><span>🔤</span><span>🧩</span><span>🔢</span><span>🧠</span></div>
-      <strong>Aprender passo a passo</strong>
-      <small>Alfabetização, linguagem, cognição e matemática</small>
+      <div class="hero-icons"><span>🧩</span><span>🃏</span><span>🔎</span><span>🔢</span></div>
+      <strong>Aprendizagem ativa</strong>
+      <small>Uma tarefa por vez, com feedback imediato e recursos de acessibilidade.</small>
     </div>
   </div>
 </header>
 
 <main class="wrap">
   <section class="stats">
-    <article><strong>5.000</strong><span>atividades</span></article>
-    <article><strong>25</strong><span>categorias</span></article>
+    <article><strong>6</strong><span>jogos interativos</span></article>
+    <article><strong>25</strong><span>categorias preservadas</span></article>
     <article><strong>3</strong><span>níveis</span></article>
-    <article><strong>100%</strong><span>responsivo</span></article>
+    <article><strong>5.000</strong><span>atividades-base</span></article>
   </section>
 
-  <section id="categorias">
+  <section id="jogos">
     <div class="section-head">
-      <div><span class="eyebrow">Escolha uma trilha</span><h2>Categorias de atividades</h2></div>
-      <label class="search"><span>🔎</span><input id="busca" type="search" placeholder="Pesquisar categoria..."></label>
-    </div>
-    <div class="filters">
-      <button class="filter active" data-group="Todas">Todas</button>
-      <button class="filter" data-group="Alfabetização">Alfabetização</button>
-      <button class="filter" data-group="Linguagem">Linguagem</button>
-      <button class="filter" data-group="Cognição">Cognição</button>
-      <button class="filter" data-group="Matemática">Matemática</button>
-    </div>
-    <div class="cards" id="cards"></div>
-  </section>
-
-  <section class="practice" id="pratica">
-    <div class="section-head practice-head">
-      <div>
-        <span class="eyebrow" id="categoriaAtual">Letras e sons</span>
-        <h2 id="tituloAtividade">Atividade</h2>
-      </div>
+      <div><span class="eyebrow">Nova área interativa</span><h2>Escolha um jogo</h2></div>
       <div class="level-picker">
         <button class="level active" data-level="Inicial">Inicial</button>
         <button class="level" data-level="Intermediário">Intermediário</button>
         <button class="level" data-level="Avançado">Avançado</button>
       </div>
     </div>
+    <div class="game-cards" id="gameCards"></div>
+  </section>
 
-    <div class="activity-box">
-      <div class="progressline"><div id="bar"></div></div>
-      <div class="activity-meta">
-        <span id="contador">Atividade 1 de 200</span>
-        <span id="grupoAtual">Alfabetização</span>
+  <section class="play-section" id="play">
+    <div class="play-head">
+      <div>
+        <span class="eyebrow" id="gameEyebrow">Jogo</span>
+        <h2 id="gameTitle">Associação imagem-palavra</h2>
       </div>
-      <div class="prompt">
-        <div class="big-emoji" id="emoji">🔤</div>
-        <div>
-          <span class="mini">Leia, observe e responda</span>
-          <h3 id="pergunta">Pergunta</h3>
-        </div>
-      </div>
-      <div id="opcoes" class="options"></div>
-      <div class="feedback" id="feedback" aria-live="polite"></div>
-      <div class="activity-actions">
-        <button class="btn ghost" id="ouvir">🔊 Ouvir</button>
-        <button class="btn ghost" id="anterior">← Anterior</button>
-        <button class="btn primary" id="proxima">Próxima →</button>
+      <button class="btn ghost" id="ouvir">🔊 Ouvir instrução</button>
+    </div>
+
+    <div class="game-shell">
+      <div id="gameArea"></div>
+      <div id="feedback" class="feedback" aria-live="polite"></div>
+      <div class="game-bottom">
+        <span id="scoreLabel">Acertos: 0</span>
+        <button class="btn primary" id="nextRound">Próxima rodada</button>
       </div>
     </div>
   </section>
 
   <section class="features">
-    <article><span>🧘</span><h3>Modo tranquilo</h3><p>Uma tarefa por vez, com interface limpa e previsível.</p></article>
-    <article><span>🔊</span><h3>Leitura por voz</h3><p>O navegador pode ler o enunciado em português do Brasil.</p></article>
-    <article><span>📈</span><h3>Progresso salvo</h3><p>Acertos e atividades concluídas ficam salvos neste dispositivo.</p></article>
-    <article><span>🎯</span><h3>Três níveis</h3><p>Inicial, intermediário e avançado em todas as categorias.</p></article>
+    <article><span>🧘</span><h3>Modo tranquilo</h3><p>Poucos elementos por tela, linguagem objetiva e previsibilidade.</p></article>
+    <article><span>🔊</span><h3>Leitura por voz</h3><p>Instruções lidas pelo navegador em português do Brasil.</p></article>
+    <article><span>🎯</span><h3>Feedback imediato</h3><p>Resposta visual clara sem excesso de animações.</p></article>
+    <article><span>📱</span><h3>Celular e computador</h3><p>Layout responsivo e botões grandes para toque.</p></article>
   </section>
 
-  <section class="dashboard">
-    <div>
-      <span class="eyebrow">Meu progresso</span>
-      <h2>Conquistas neste dispositivo</h2>
-      <p>Os dados são salvos apenas no navegador utilizado.</p>
-    </div>
-    <div class="dash-cards">
-      <article><strong id="acertos">0</strong><span>acertos</span></article>
-      <article><strong id="respondidas">0</strong><span>respondidas</span></article>
-      <article><strong id="percentual">0%</strong><span>aproveitamento</span></article>
-    </div>
-    <button class="link-btn" id="zerar">Zerar progresso</button>
+  <section class="legacy">
+    <span class="eyebrow">Conteúdo ampliado</span>
+    <h2>As 25 categorias continuam disponíveis</h2>
+    <p>Esta versão acrescenta jogos interativos sem remover a estrutura de alfabetização, linguagem, cognição e matemática já publicada.</p>
+    <div class="mini-grid" id="legacyGrid"></div>
   </section>
 </main>
 
 <footer>
   <strong>Alfabetizando TEA</strong>
-  <span>Recurso educacional de apoio pedagógico • Prof. Dr. Marcelo Marques de Araújo – UFPA</span>
+  <span>Prof. Dr. Marcelo Marques de Araújo – UFPA</span>
 </footer>
 <script src="script.js"></script>
 </body>
