@@ -1,127 +1,99 @@
 
-const wordSets = {
- Animais:[['GATO','🐱'],['PATO','🦆'],['SAPO','🐸'],['RATO','🐭'],['PEIXE','🐟'],['CÃO','🐶'],['VACA','🐄'],['LEÃO','🦁'],['MACACO','🐒'],['COELHO','🐰']],
- Alimentos:[['BANANA','🍌'],['MAÇÃ','🍎'],['UVA','🍇'],['OVO','🥚'],['LEITE','🥛'],['PÃO','🍞'],['BOLO','🍰'],['PERA','🍐'],['MEL','🍯'],['MILHO','🌽']],
- Escola:[['LIVRO','📚'],['CADERNO','📒'],['LÁPIS','✏️'],['MESA','🪑'],['ESCOLA','🏫'],['REGRA','📏'],['MOCHILA','🎒'],['COLA','🧴'],['TESOURA','✂️'],['QUADRO','🖼️']],
- Casa:[['CASA','🏠'],['CHAVE','🔑'],['CAMA','🛏️'],['MESA','🪑'],['PORTA','🚪'],['JANELA','🪟'],['COPO','🥛'],['PRATO','🍽️'],['SOFÁ','🛋️'],['LÂMPADA','💡']],
- Transporte:[['CARRO','🚗'],['NAVIO','🚢'],['ÔNIBUS','🚌'],['TREM','🚆'],['AVIÃO','✈️'],['BICICLETA','🚲'],['BARCO','⛵'],['MOTO','🏍️'],['CAMINHÃO','🚚'],['METRÔ','🚇']],
- Natureza:[['SOL','☀️'],['LUA','🌙'],['FLOR','🌸'],['ÁRVORE','🌳'],['CHUVA','🌧️'],['NUVEM','☁️'],['RIO','🏞️'],['MAR','🌊'],['FOLHA','🍃'],['PEDRA','🪨']],
- Corpo:[['BOCA','👄'],['MÃO','✋'],['PÉ','🦶'],['OLHO','👁️'],['ORELHA','👂'],['NARIZ','👃'],['DENTE','🦷'],['BRAÇO','💪'],['CABEÇA','🙂'],['CORAÇÃO','❤️']],
- Objetos:[['BOLA','⚽'],['DADO','🎲'],['FACA','🔪'],['CHAVE','🔑'],['RELÓGIO','⌚'],['ÓCULOS','👓'],['TELEFONE','📱'],['CADEADO','🔒'],['GUARDA-CHUVA','☂️'],['GARRAFA','🧴']]
-};
-const themes=Object.keys(wordSets);
-const games=[
- {id:'assoc',icon:'🧩',title:'Associação imagem-palavra',desc:'100 atividades por temas: animais, alimentos, escola, casa, natureza, corpo e objetos.',tag:'Alfabetização'},
- {id:'mem',icon:'🃏',title:'Jogo da memória',desc:'100 combinações temáticas com pares imagem-palavra e diferentes quantidades de cartas.',tag:'Memória'},
- {id:'caca',icon:'🔎',title:'Caça-palavras',desc:'100 grades com palavras de temas e tamanhos variados, em diferentes direções.',tag:'Atenção'},
- {id:'ordem',icon:'🔤',title:'Monte a palavra',desc:'100 tarefas com letras, sílabas simples, sílabas complexas e pares fonêmicos.',tag:'Escrita'},
- {id:'seq',icon:'➡️',title:'Sequências',desc:'100 desafios de progressão, alternância, repetição e padrões.',tag:'Cognição'},
- {id:'math',icon:'🔢',title:'Desafio matemático',desc:'100 problemas e cálculos de adição, subtração, multiplicação e divisão.',tag:'Matemática'}
+const categorias = [{"group": "Alfabetização", "title": "Rimas", "icon": "🎵", "skill": "Identificar palavras que rimam", "mode": "phonology"}, {"group": "Alfabetização", "title": "Som inicial", "icon": "🔊", "skill": "Identificar fonema inicial", "mode": "phonology"}, {"group": "Alfabetização", "title": "Som final", "icon": "🔚", "skill": "Identificar fonema final", "mode": "phonology"}, {"group": "Alfabetização", "title": "Aliteração", "icon": "🗣️", "skill": "Reconhecer palavras com o mesmo som inicial", "mode": "phonology"}, {"group": "Alfabetização", "title": "Contagem de sílabas", "icon": "👏", "skill": "Segmentar palavras em sílabas", "mode": "syllable"}, {"group": "Alfabetização", "title": "Sílaba inicial", "icon": "🧩", "skill": "Identificar sílaba inicial", "mode": "syllable"}, {"group": "Alfabetização", "title": "Sílaba final", "icon": "🧱", "skill": "Identificar sílaba final", "mode": "syllable"}, {"group": "Alfabetização", "title": "Completar palavras", "icon": "✍️", "skill": "Completar letras e sílabas ausentes", "mode": "word"}, {"group": "Alfabetização", "title": "Montagem de palavras", "icon": "🔤", "skill": "Ordenar letras e sílabas", "mode": "word"}, {"group": "Alfabetização", "title": "Pares P/B", "icon": "🅿️", "skill": "Discriminar P e B", "mode": "pairs"}, {"group": "Alfabetização", "title": "Pares T/D", "icon": "🔠", "skill": "Discriminar T e D", "mode": "pairs"}, {"group": "Alfabetização", "title": "Pares F/V", "icon": "🗨️", "skill": "Discriminar F e V", "mode": "pairs"}, {"group": "Alfabetização", "title": "Pares S/Z", "icon": "🔡", "skill": "Discriminar S e Z", "mode": "pairs"}, {"group": "Alfabetização", "title": "X/CH", "icon": "📝", "skill": "Distinguir X e CH", "mode": "pairs"}, {"group": "Alfabetização", "title": "R/RR", "icon": "📚", "skill": "Distinguir R e RR", "mode": "pairs"}, {"group": "Alfabetização", "title": "M/N", "icon": "🔎", "skill": "Distinguir M e N", "mode": "pairs"}, {"group": "Alfabetização", "title": "S/SS", "icon": "✏️", "skill": "Distinguir S e SS", "mode": "pairs"}, {"group": "Alfabetização", "title": "Leitura de palavras", "icon": "📖", "skill": "Ler palavras frequentes", "mode": "reading"}, {"group": "Alfabetização", "title": "Leitura de frases", "icon": "🧾", "skill": "Compreender frases curtas", "mode": "reading"}, {"group": "Alfabetização", "title": "Ditado com áudio", "icon": "🎧", "skill": "Relacionar som e escrita", "mode": "dictation"}, {"group": "Matemática", "title": "Número e quantidade", "icon": "🔢", "skill": "Relacionar numeral e quantidade", "mode": "number"}, {"group": "Matemática", "title": "Subitização", "icon": "👀", "skill": "Reconhecer quantidades sem contar", "mode": "number"}, {"group": "Matemática", "title": "Contagem progressiva", "icon": "➡️", "skill": "Contar em ordem crescente", "mode": "sequence"}, {"group": "Matemática", "title": "Contagem regressiva", "icon": "⬅️", "skill": "Contar em ordem decrescente", "mode": "sequence"}, {"group": "Matemática", "title": "Antecessor e sucessor", "icon": "↔️", "skill": "Identificar números vizinhos", "mode": "number"}, {"group": "Matemática", "title": "Maior, menor e igual", "icon": "⚖️", "skill": "Comparar números", "mode": "compare"}, {"group": "Matemática", "title": "Composição de números", "icon": "🧮", "skill": "Compor dezenas e unidades", "mode": "place"}, {"group": "Matemática", "title": "Decomposição de números", "icon": "🧱", "skill": "Decompor números", "mode": "place"}, {"group": "Matemática", "title": "Reta numérica", "icon": "📏", "skill": "Localizar números na reta", "mode": "sequence"}, {"group": "Matemática", "title": "Pares e ímpares", "icon": "2️⃣", "skill": "Classificar números", "mode": "number"}, {"group": "Matemática", "title": "Dezenas e unidades", "icon": "🔟", "skill": "Compreender valor posicional", "mode": "place"}, {"group": "Matemática", "title": "Adição visual", "icon": "➕", "skill": "Somar com apoio visual", "mode": "add"}, {"group": "Matemática", "title": "Subtração visual", "icon": "➖", "skill": "Subtrair com apoio visual", "mode": "sub"}, {"group": "Matemática", "title": "Cálculo mental", "icon": "🧠", "skill": "Resolver operações mentalmente", "mode": "mixed"}, {"group": "Matemática", "title": "Multiplicação por grupos", "icon": "✖️", "skill": "Interpretar grupos iguais", "mode": "mult"}, {"group": "Matemática", "title": "Divisão por partilha", "icon": "➗", "skill": "Repartir igualmente", "mode": "div"}, {"group": "Matemática", "title": "Problemas matemáticos", "icon": "🧩", "skill": "Resolver situações-problema", "mode": "problem"}, {"group": "Matemática", "title": "Formas geométricas", "icon": "📐", "skill": "Reconhecer propriedades geométricas", "mode": "geometry"}, {"group": "Matemática", "title": "Simetria e padrões", "icon": "🪞", "skill": "Reconhecer simetria e regularidades", "mode": "pattern"}, {"group": "Matemática", "title": "Localização espacial", "icon": "🧭", "skill": "Usar relações espaciais", "mode": "spatial"}, {"group": "Cognição e atenção", "title": "Encontre o diferente", "icon": "🔍", "skill": "Discriminação visual", "mode": "attention"}, {"group": "Cognição e atenção", "title": "Encontre os iguais", "icon": "👯", "skill": "Pareamento visual", "mode": "attention"}, {"group": "Cognição e atenção", "title": "Memória visual", "icon": "🃏", "skill": "Memória de curto prazo", "mode": "memory"}, {"group": "Cognição e atenção", "title": "Memória auditiva", "icon": "🎧", "skill": "Memória sequencial auditiva", "mode": "memory"}, {"group": "Cognição e atenção", "title": "Sequência de ações", "icon": "🪜", "skill": "Ordenação temporal", "mode": "sequence_logic"}, {"group": "Cognição e atenção", "title": "Classificação", "icon": "🗂️", "skill": "Agrupar por atributos", "mode": "classification"}, {"group": "Cognição e atenção", "title": "Categorização", "icon": "📦", "skill": "Organizar por categorias", "mode": "classification"}, {"group": "Cognição e atenção", "title": "Atenção seletiva", "icon": "🎯", "skill": "Selecionar estímulos-alvo", "mode": "attention"}, {"group": "Cognição e atenção", "title": "Flexibilidade cognitiva", "icon": "🔄", "skill": "Mudar regra de classificação", "mode": "flexibility"}, {"group": "Cognição e atenção", "title": "Inibição e autocontrole", "icon": "🛑", "skill": "Responder apenas ao estímulo correto", "mode": "inhibition"}, {"group": "Matemática funcional", "title": "Compras no mercado", "icon": "🛒", "skill": "Somar valores em compras", "mode": "money"}, {"group": "Matemática funcional", "title": "Escolher o menor preço", "icon": "🏷️", "skill": "Comparar preços", "mode": "money"}, {"group": "Matemática funcional", "title": "Calcular troco", "icon": "💵", "skill": "Resolver troco simples", "mode": "money"}, {"group": "Matemática funcional", "title": "Organizar horário", "icon": "🕒", "skill": "Interpretar horários", "mode": "time"}, {"group": "Matemática funcional", "title": "Calendário da semana", "icon": "📅", "skill": "Relacionar dias e compromissos", "mode": "calendar"}, {"group": "Matemática funcional", "title": "Medidas na cozinha", "icon": "🥄", "skill": "Usar medidas de capacidade", "mode": "measure"}, {"group": "Matemática funcional", "title": "Dividir materiais", "icon": "✂️", "skill": "Partilhar quantidades", "mode": "div"}, {"group": "Matemática funcional", "title": "Contar objetos da sala", "icon": "🏫", "skill": "Aplicar contagem ao cotidiano", "mode": "number"}, {"group": "Matemática funcional", "title": "Ler tabelas simples", "icon": "📊", "skill": "Interpretar dados", "mode": "data"}, {"group": "Matemática funcional", "title": "Planejar uma rotina", "icon": "🗓️", "skill": "Sequenciar tempo e tarefas", "mode": "calendar"}, {"group": "Comunicação e linguagem", "title": "Nomear objetos", "icon": "🗣️", "skill": "Ampliar vocabulário funcional", "mode": "vocab"}, {"group": "Comunicação e linguagem", "title": "Pedir ajuda", "icon": "🙋", "skill": "Formular pedido funcional", "mode": "communication"}, {"group": "Comunicação e linguagem", "title": "Escolher entre opções", "icon": "☑️", "skill": "Expressar preferência", "mode": "communication"}, {"group": "Comunicação e linguagem", "title": "Completar frases funcionais", "icon": "💬", "skill": "Produzir frases contextualizadas", "mode": "sentence"}, {"group": "Comunicação e linguagem", "title": "Sentimentos e emoções", "icon": "🙂", "skill": "Reconhecer vocabulário emocional", "mode": "emotion"}, {"group": "Comunicação e linguagem", "title": "Ações do cotidiano", "icon": "🚶", "skill": "Nomear e compreender ações", "mode": "vocab"}, {"group": "Comunicação e linguagem", "title": "Perguntas Quem/Onde/O quê", "icon": "❓", "skill": "Responder perguntas simples", "mode": "wh"}, {"group": "Comunicação e linguagem", "title": "Sequência de histórias", "icon": "📚", "skill": "Organizar narrativa visual", "mode": "story"}, {"group": "Comunicação e linguagem", "title": "Inferência simples", "icon": "💡", "skill": "Inferir informação implícita", "mode": "inference"}, {"group": "Comunicação e linguagem", "title": "Recontagem de histórias", "icon": "🗯️", "skill": "Recontar começo, meio e fim", "mode": "story"}, {"group": "Trilhas pedagógicas", "title": "Início da alfabetização", "icon": "🌱", "skill": "Reconhecimento de letras e sons", "mode": "track_lit"}, {"group": "Trilhas pedagógicas", "title": "Consciência fonológica", "icon": "👂", "skill": "Rimas, sons e sílabas", "mode": "track_lit"}, {"group": "Trilhas pedagógicas", "title": "Formação de palavras", "icon": "🔡", "skill": "Montagem e leitura de palavras", "mode": "track_lit"}, {"group": "Trilhas pedagógicas", "title": "Leitura inicial", "icon": "📖", "skill": "Palavras e frases simples", "mode": "track_lit"}, {"group": "Trilhas pedagógicas", "title": "Compreensão de texto", "icon": "📘", "skill": "Interpretação e inferência", "mode": "track_lit"}, {"group": "Trilhas pedagógicas", "title": "Números e quantidades", "icon": "🔢", "skill": "Contagem e comparação", "mode": "track_math"}, {"group": "Trilhas pedagógicas", "title": "Operações básicas", "icon": "➕", "skill": "Adição e subtração", "mode": "track_math"}, {"group": "Trilhas pedagógicas", "title": "Multiplicação e divisão", "icon": "✖️", "skill": "Grupos e partilhas", "mode": "track_math"}, {"group": "Trilhas pedagógicas", "title": "Matemática funcional", "icon": "🛒", "skill": "Dinheiro, tempo e medidas", "mode": "track_math"}, {"group": "Trilhas pedagógicas", "title": "Autonomia acadêmica", "icon": "🏆", "skill": "Revisão integrada e progressiva", "mode": "track_mix"}];
+const palavras = [
+ ['GATO','🐱'],['PATO','🦆'],['SAPO','🐸'],['RATO','🐭'],['PEIXE','🐟'],['CÃO','🐶'],['VACA','🐄'],['LEÃO','🦁'],
+ ['BANANA','🍌'],['MAÇÃ','🍎'],['UVA','🍇'],['OVO','🥚'],['LEITE','🥛'],['PÃO','🍞'],['BOLO','🍰'],['PERA','🍐'],
+ ['LIVRO','📚'],['CADERNO','📒'],['LÁPIS','✏️'],['ESCOLA','🏫'],['MOCHILA','🎒'],['TESOURA','✂️'],
+ ['CASA','🏠'],['CHAVE','🔑'],['CAMA','🛏️'],['PORTA','🚪'],['JANELA','🪟'],['SOFÁ','🛋️'],
+ ['CARRO','🚗'],['NAVIO','🚢'],['ÔNIBUS','🚌'],['TREM','🚆'],['AVIÃO','✈️'],['BICICLETA','🚲'],
+ ['SOL','☀️'],['LUA','🌙'],['FLOR','🌸'],['ÁRVORE','🌳'],['CHUVA','🌧️'],['NUVEM','☁️'],
+ ['BOCA','👄'],['MÃO','✋'],['PÉ','🦶'],['OLHO','👁️'],['ORELHA','👂'],['NARIZ','👃']
 ];
-const legacy=['Letras e sons','Sílabas','Pré-silábica','Silábica','Silábico-alfabética','Alfabética','Leitura','Interpretação','Ortografia','Vocabulário','Frases e textos','Caça-palavras','Memória','Atenção','Sequências','Números','Adição','Subtração','Multiplicação','Divisão','Geometria','Medidas','Tempo','Dinheiro','Tabelas e gráficos'];
-let level='Inicial',current=games[0],round=0,score=0,attempts=0,memoryState={};
+let atual=categorias[0], idx=0, nivel='Inicial';
+let acertos=Number(localStorage.getItem('atea8_acertos')||0), respondidas=Number(localStorage.getItem('atea8_resp')||0);
+const cards=document.getElementById('cards'), busca=document.getElementById('busca');
 
-const cards=document.getElementById('gameCards'),gameArea=document.getElementById('gameArea'),feedback=document.getElementById('feedback');
-document.getElementById('legacyGrid').innerHTML=legacy.map(x=>`<span>${x}</span>`).join('');
-
-function seeded(seed){let x=Math.sin(seed*9781+31)*10000;return x-Math.floor(x)}
-function r(seed,n){return Math.floor(seeded(seed)*n)}
-function shuffle(a,seed){a=[...a];for(let i=a.length-1;i>0;i--){let j=r(seed+i*13,i+1);[a[i],a[j]]=[a[j],a[i]]}return a}
-function flatWords(theme){return wordSets[theme].map(([w,e])=>({w,e}))}
-function say(t){if('speechSynthesis'in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='pt-BR';speechSynthesis.speak(u)}}
-function setFeedback(text,ok){feedback.textContent=text;feedback.className='feedback '+(ok?'ok':'no')}
-function updateScore(){document.getElementById('scoreLabel').textContent=`Acertos: ${score}`;document.getElementById('attemptLabel').textContent=`Respondidas: ${attempts}`}
-function register(ok,msg=''){attempts++;if(ok){score++;setFeedback('Muito bem! Resposta correta.',true)}else setFeedback(msg||'Tente novamente na próxima atividade.',false);updateScore()}
-function themeForRound(){return themes[Math.floor(round/13)%themes.length]}
-function updateMeta(){document.getElementById('activityCounter').textContent=`Atividade ${round+1} de 100`;document.getElementById('bar').style.width=`${round+1}%`;document.getElementById('themeCounter').textContent=`Tema: ${themeForRound()}`}
-
-function renderCards(){cards.innerHTML='';games.forEach(g=>{const el=document.createElement('article');el.innerHTML=`<div class="game-icon">${g.icon}</div><div class="game-title">${g.title}</div><div class="game-desc">${g.desc}</div><span class="game-tag">${g.tag}</span>`;el.onclick=()=>{current=g;round=0;renderGame();document.getElementById('play').scrollIntoView({behavior:'smooth'})};cards.appendChild(el)})}
-function renderGame(){feedback.textContent='';feedback.className='feedback';updateMeta();document.getElementById('gameEyebrow').textContent=current.tag;document.getElementById('gameTitle').textContent=current.title;
- if(current.id==='assoc')assoc();if(current.id==='mem')memory();if(current.id==='caca')caca();if(current.id==='ordem')ordem();if(current.id==='seq')seq();if(current.id==='math')math();
-}
-
-function assoc(){
- const theme=themeForRound(),pool=flatWords(theme),seed=round*97+(level==='Inicial'?1:level==='Intermediário'?2:3);
- const target=pool[r(seed,pool.length)];
- const others=shuffle(pool.filter(x=>x.w!==target.w),seed+9).slice(0,level==='Avançado'?5:level==='Intermediário'?3:2);
- const choices=shuffle([target,...others],seed+17);
- const prompt = round%4===0 ? `Qual palavra corresponde à imagem?` :
-                round%4===1 ? `Escolha o nome correto da figura.` :
-                round%4===2 ? `Observe e identifique a palavra.` : `Qual opção nomeia esta imagem?`;
- gameArea.innerHTML=`<div class="prompt-center"><div class="prompt-emoji">${target.e}</div><div class="instruction">${prompt}</div><div class="choice-grid">${choices.map(x=>`<button class="choice" data-a="${x.w}">${x.w}</button>`).join('')}</div></div>`;
- gameArea.querySelectorAll('.choice').forEach(b=>b.onclick=()=>{gameArea.querySelectorAll('.choice').forEach(x=>x.disabled=true);if(b.dataset.a===target.w){b.classList.add('correct');register(true)}else{b.classList.add('wrong');[...gameArea.querySelectorAll('.choice')].find(x=>x.dataset.a===target.w)?.classList.add('correct');register(false,`A resposta correta é ${target.w}.`)}})
-}
-
-function memory(){
- const theme=themeForRound(),seed=round*89+(level==='Inicial'?11:level==='Intermediário'?22:33),pool=flatWords(theme);
- const pairs=level==='Inicial'?3:level==='Intermediário'?4:6;
- const chosen=shuffle(pool,seed).slice(0,pairs);let arr=[];chosen.forEach((x,i)=>{arr.push({k:i,t:x.e});arr.push({k:i,t:x.w})});arr=shuffle(arr,seed+19);
- memoryState={first:null,locked:false,matched:0,completed:false};
- gameArea.innerHTML=`<div class="instruction">Encontre todos os pares de imagem e palavra do tema <strong>${theme}</strong>.</div><div class="memory-grid">${arr.map((c,i)=>`<button class="memory-card covered" data-k="${c.k}">${c.t}</button>`).join('')}</div>`;
- gameArea.querySelectorAll('.memory-card').forEach(b=>b.onclick=()=>{
-   if(memoryState.locked||b.classList.contains('matched')||!b.classList.contains('covered'))return;
-   b.classList.remove('covered');
-   if(!memoryState.first){memoryState.first=b;return}
-   if(memoryState.first.dataset.k===b.dataset.k){memoryState.first.classList.add('matched');b.classList.add('matched');memoryState.first=null;memoryState.matched++;if(memoryState.matched===pairs&&!memoryState.completed){memoryState.completed=true;register(true);setFeedback('Parabéns! Todos os pares foram encontrados.',true)}}
-   else{memoryState.locked=true;const f=memoryState.first;setTimeout(()=>{f.classList.add('covered');b.classList.add('covered');memoryState.first=null;memoryState.locked=false},650)}
- })
-}
-
-function caca(){
- const theme=themeForRound(),pool=flatWords(theme).filter(x=>x.w.replace('-','').length<=8),seed=round*83+(level==='Inicial'?3:level==='Intermediário'?6:9);
- const target=pool[r(seed,pool.length)].w.replace('-','');
- const size=8,letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ';let grid=Array(size*size).fill('').map((_,i)=>letters[r(seed+i*7,letters.length)]),positions=[];
- const mode=round%4;
- if(mode===0){const row=r(seed+2,size),start=r(seed+3,size-target.length+1);for(let i=0;i<target.length;i++){let p=row*size+start+i;grid[p]=target[i];positions.push(p)}}
- else if(mode===1){const col=r(seed+2,size),start=r(seed+3,size-target.length+1);for(let i=0;i<target.length;i++){let p=(start+i)*size+col;grid[p]=target[i];positions.push(p)}}
- else if(mode===2){const row=r(seed+2,size),start=r(seed+3,size-target.length+1);for(let i=0;i<target.length;i++){let p=row*size+start+(target.length-1-i);grid[p]=target[i];positions.push(p)}}
- else{const col=r(seed+2,size),start=r(seed+3,size-target.length+1);for(let i=0;i<target.length;i++){let p=(start+target.length-1-i)*size+col;grid[p]=target[i];positions.push(p)}}
- gameArea.innerHTML=`<div class="instruction">Encontre <strong>${target}</strong> na grade. A palavra pode estar na horizontal ou vertical, em ordem normal ou invertida.</div><div class="wordsearch">${grid.map((l,i)=>`<button class="wordcell" data-i="${i}">${l}</button>`).join('')}</div>`;
- let chosen=[];gameArea.querySelectorAll('.wordcell').forEach(b=>b.onclick=()=>{const p=+b.dataset.i;if(b.classList.contains('selected')){b.classList.remove('selected');chosen=chosen.filter(x=>x!==p)}else{b.classList.add('selected');chosen.push(p)}if(chosen.length===positions.length){gameArea.querySelectorAll('.wordcell').forEach(x=>x.disabled=true);register(chosen.every((x,i)=>x===positions[i]),`A palavra ${target} estava em outra sequência de casas.`)}})
-}
-
-function ordem(){
- const theme=themeForRound(),pool=flatWords(theme),seed=round*79+(level==='Inicial'?4:level==='Intermediário'?8:12),t=pool[r(seed,pool.length)];
- let parts=[];
- if(round%4===0){parts=t.w.split('')}
- else if(round%4===1){for(let i=0;i<t.w.length;i+=2)parts.push(t.w.slice(i,i+2))}
- else if(round%4===2){
-   const vowels='AEIOUÁÉÍÓÚÂÊÔÃÕ';let cur='';for(const ch of t.w){cur+=ch;if(vowels.includes(ch)){parts.push(cur);cur=''}}if(cur)parts.push(cur)
- } else {
-   const digraphs=['CH','LH','NH','RR','SS'];let w=t.w,i=0;while(i<w.length){let d=w.slice(i,i+2);if(digraphs.includes(d)){parts.push(d);i+=2}else{parts.push(w[i]);i++}}
+function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+function pick(arr,seed){return arr[seed%arr.length]}
+function shuffle(arr,seed){let a=[...arr];for(let i=a.length-1;i>0;i--){seed=(seed*1664525+1013904223)>>>0;let j=seed%(i+1);[a[i],a[j]]=[a[j],a[i]]}return a}
+function word(seed){let [w,e]=pick(palavras,seed);return {w,e}}
+function opts(correct,alts,seed){return shuffle([correct,...alts.filter(x=>x!==correct)].slice(0,3),seed)}
+function activity(cat,i,lev){
+ const f=lev==='Inicial'?0:lev==='Intermediário'?1:2, s=hash(cat.title+'-'+i+'-'+lev), a=word(s),b=word(s+13),c=word(s+29);
+ let q='',ans='',op=[],emoji=cat.icon;
+ const n1=1+(s%((f+1)*10+10)),n2=1+((s>>5)%((f+1)*8+8));
+ switch(cat.mode){
+  case 'phonology': q=`Qual palavra combina melhor com o som de ${a.w}?`;ans=b.w;op=opts(ans,[a.w,c.w],s);emoji='🎵';break;
+  case 'syllable': ans=String(Math.max(1,Math.round(a.w.length/2.5)));q=`Quantas partes faladas (sílabas) você percebe em ${a.w}?`;op=opts(ans,[String(+ans+1),String(Math.max(1,+ans-1))],s);emoji=a.e;break;
+  case 'pairs': q=`Qual opção apresenta a escrita correta?`;ans=a.w;op=opts(ans,[a.w.replace(/P/g,'B'),a.w.replace(/S/g,'Z')],s);emoji='🔤';break;
+  case 'word': q=`Qual palavra corresponde à imagem?`;ans=a.w;op=opts(ans,[b.w,c.w],s);emoji=a.e;break;
+  case 'reading': q=`Leia e selecione a palavra correspondente à imagem.`;ans=a.w;op=opts(ans,[b.w,c.w],s);emoji=a.e;break;
+  case 'dictation': q=`Ouça e escolha a escrita correta da palavra ${a.w}.`;ans=a.w;op=opts(ans,[b.w,c.w],s);emoji='🎧';break;
+  case 'number': q=`Qual número vem depois de ${n1}?`;ans=String(n1+1);op=opts(ans,[String(n1),String(n1+2)],s);emoji='🔢';break;
+  case 'sequence': q=`Complete: ${n1}, ${n1+2}, ${n1+4}, __`;ans=String(n1+6);op=opts(ans,[String(n1+5),String(n1+8)],s);emoji='➡️';break;
+  case 'compare': q=`Qual é o maior número?`;ans=String(Math.max(n1,n2));op=opts(ans,[String(Math.min(n1,n2)),String(Math.max(n1,n2)+1)],s);emoji='⚖️';break;
+  case 'place': {let num=10+((s%89));q=`No número ${num}, quantas dezenas há?`;ans=String(Math.floor(num/10));op=opts(ans,[String(num%10),String(Math.floor(num/10)+1)],s);emoji='🔟';break}
+  case 'add': q=`Quanto é ${n1} + ${n2}?`;ans=String(n1+n2);op=opts(ans,[String(n1+n2+1),String(Math.max(0,n1+n2-1))],s);emoji='➕';break;
+  case 'sub': {let x=Math.max(n1,n2),y=Math.min(n1,n2);q=`Quanto é ${x} − ${y}?`;ans=String(x-y);op=opts(ans,[String(x-y+1),String(Math.max(0,x-y-1))],s);emoji='➖';break}
+  case 'mixed': q=`Resolva: ${n1} + ${n2}`;ans=String(n1+n2);op=opts(ans,[String(n1+n2+2),String(Math.max(0,n1+n2-2))],s);emoji='🧠';break;
+  case 'mult': {let x=2+(s%8),y=2+((s>>3)%8);q=`Há ${x} grupos com ${y} objetos em cada. Quantos objetos há?`;ans=String(x*y);op=opts(ans,[String(x*y+x),String(x*y-y)],s);emoji='✖️';break}
+  case 'div': {let y=2+(s%8),r=2+((s>>3)%8),x=y*r;q=`Divida ${x} objetos igualmente entre ${y} pessoas. Quantos para cada uma?`;ans=String(r);op=opts(ans,[String(r+1),String(Math.max(1,r-1))],s);emoji='➗';break}
+  case 'problem': q=`Ana tinha ${n1} figurinhas e ganhou ${n2}. Quantas tem agora?`;ans=String(n1+n2);op=opts(ans,[String(n1+n2+1),String(Math.max(0,n1+n2-1))],s);emoji='🧩';break;
+  case 'geometry': ans='Triângulo';q='Qual forma tem 3 lados?';op=shuffle(['Triângulo','Quadrado','Círculo'],s);emoji='📐';break;
+  case 'pattern': ans='8';q='Complete o padrão: 2, 4, 6, __';op=shuffle(['8','7','10'],s);emoji='🪞';break;
+  case 'spatial': ans='Acima';q='Se um objeto está sobre a mesa, ele está...';op=shuffle(['Acima','Abaixo','Dentro'],s);emoji='🧭';break;
+  case 'attention': ans='⭐';q='Encontre o símbolo-alvo: ⭐';op=shuffle(['⭐','🔺','🔵'],s);emoji='🎯';break;
+  case 'memory': ans=a.w;q=`Qual palavra combina com ${a.e}?`;op=opts(ans,[b.w,c.w],s);emoji='🃏';break;
+  case 'sequence_logic': ans='Depois';q='Na rotina: acordar → escovar os dentes → tomar café. O café acontece...';op=shuffle(['Depois','Antes','Nunca'],s);emoji='🪜';break;
+  case 'classification': ans='Animal';q=`${a.e} pertence a qual grupo?`;op=shuffle(['Animal','Número','Cor'],s);emoji='🗂️';break;
+  case 'flexibility': ans='Mudar a regra';q='Se agora devemos separar por tamanho em vez de cor, o que fazemos?';op=shuffle(['Mudar a regra','Continuar igual','Parar tudo'],s);emoji='🔄';break;
+  case 'inhibition': ans='Esperar';q='Quando a instrução é "só responda quando aparecer verde", o que fazer antes do verde?';op=shuffle(['Esperar','Responder rápido','Escolher qualquer opção'],s);emoji='🛑';break;
+  case 'money': {let x=1+(s%20),y=1+((s>>4)%10);q=`Uma compra custa R$ ${x} e outra R$ ${y}. Total?`;ans=`R$ ${x+y}`;op=opts(ans,[`R$ ${x+y+1}`,`R$ ${Math.max(0,x+y-1)}`],s);emoji='💵';break}
+  case 'time': {let h=1+(s%10);q=`Se agora são ${h} horas e passa 1 hora, que horas serão?`;ans=`${h+1} horas`;op=opts(ans,[`${h} horas`,`${h+2} horas`],s);emoji='🕒';break}
+  case 'calendar': ans='Depois';q='Se hoje é segunda-feira, terça-feira vem...';op=shuffle(['Depois','Antes','No mês passado'],s);emoji='📅';break;
+  case 'measure': ans='Litro';q='Qual unidade usamos com frequência para medir líquidos?';op=shuffle(['Litro','Metro','Hora'],s);emoji='🥄';break;
+  case 'data': ans='Azul';q='Tabela: Azul=8, Verde=5, Amarelo=3. Qual tem maior quantidade?';op=shuffle(['Azul','Verde','Amarelo'],s);emoji='📊';break;
+  case 'vocab': ans=a.w;q=`Qual palavra nomeia esta imagem?`;op=opts(ans,[b.w,c.w],s);emoji=a.e;break;
+  case 'communication': ans='Por favor, me ajude.';q='Qual frase é adequada para pedir ajuda?';op=shuffle(['Por favor, me ajude.','Não quero falar.','Vou embora.'],s);emoji='🙋';break;
+  case 'sentence': ans='Eu quero água, por favor.';q='Qual frase comunica um pedido de forma clara?';op=shuffle([ans,'Água talvez ontem.','Eu correr cadeira.'],s);emoji='💬';break;
+  case 'emotion': ans='Feliz';q='Uma pessoa sorrindo após receber uma boa notícia pode estar...';op=shuffle(['Feliz','Com sono','Com frio'],s);emoji='🙂';break;
+  case 'wh': ans='Na escola';q='Onde o aluno estuda?';op=shuffle(['Na escola','Com um lápis','Porque sim'],s);emoji='❓';break;
+  case 'story': ans='Começo, meio e fim';q='Uma história organizada geralmente apresenta...';op=shuffle([ans,'Só o final','Palavras sem ordem'],s);emoji='📚';break;
+  case 'inference': ans='Estava chovendo';q='João entrou em casa com o guarda-chuva molhado. O que provavelmente aconteceu?';op=shuffle([ans,'Estava muito calor','Ele estava dormindo'],s);emoji='💡';break;
+  case 'track_lit': ans=a.w;q=`Trilha de alfabetização: identifique a palavra correta para ${a.e}.`;op=opts(ans,[b.w,c.w],s);emoji=a.e;break;
+  case 'track_math': q=`Trilha de matemática: quanto é ${n1} + ${n2}?`;ans=String(n1+n2);op=opts(ans,[String(n1+n2+1),String(Math.max(0,n1+n2-1))],s);emoji='🔢';break;
+  case 'track_mix': {if(i%2===0){ans=a.w;q=`Identifique a palavra: ${a.e}`;op=opts(ans,[b.w,c.w],s);emoji=a.e}else{q=`Resolva ${n1} + ${n2}`;ans=String(n1+n2);op=opts(ans,[String(n1+n2+1),String(Math.max(0,n1+n2-1))],s);emoji='🏆'}break}
  }
- let built=[];gameArea.innerHTML=`<div class="prompt-center"><div class="prompt-emoji">${t.e}</div><div class="instruction">Monte a palavra usando as partes na ordem correta.</div><div class="dropzone" id="drop">Toque nas partes abaixo.</div><div class="tiles">${shuffle(parts,seed+21).map(p=>`<button class="tile" data-p="${p}">${p}</button>`).join('')}</div></div>`;
- gameArea.querySelectorAll('.tile').forEach(b=>b.onclick=()=>{if(b.disabled)return;b.disabled=true;b.classList.add('selected');built.push(b.dataset.p);document.getElementById('drop').textContent=built.join('');if(built.length===parts.length)register(built.join('')===t.w,`A palavra correta é ${t.w}.`)})
+ return {q,ans,op,emoji};
 }
 
-function seq(){
- const seed=round*73+(level==='Inicial'?5:level==='Intermediário'?10:15),kind=round%5;let arr=[],ans,choices;
- if(kind===0){let start=1+r(seed,9),step=1+r(seed+2,3);arr=[start,start+step,start+2*step];ans=start+3*step}
- else if(kind===1){let start=2+r(seed,7),step=2+r(seed+2,4);arr=[start,start+step,start+2*step,start+3*step];ans=start+4*step}
- else if(kind===2){let a=1+r(seed,5),b=a+1;arr=[a,b,a,b];ans=a}
- else if(kind===3){let a=2+r(seed,4);arr=[a,a*2,a*4];ans=a*8}
- else{let a=10+r(seed,10),step=1+r(seed+2,3);arr=[a,a-step,a-2*step];ans=a-3*step}
- choices=shuffle([ans,ans+1,Math.max(0,ans-1)],seed+31);
- gameArea.innerHTML=`<div class="instruction">Observe o padrão e escolha o próximo item.</div><div class="sequence-grid">${arr.map(x=>`<div class="seq-card">${x}</div>`).join('')}<div class="seq-card">?</div></div><div class="choice-grid" style="margin-top:16px">${choices.map(x=>`<button class="choice" data-a="${x}">${x}</button>`).join('')}</div>`;
- gameArea.querySelectorAll('.choice').forEach(b=>b.onclick=()=>{gameArea.querySelectorAll('.choice').forEach(x=>x.disabled=true);if(+b.dataset.a===ans){b.classList.add('correct');register(true)}else{b.classList.add('wrong');register(false,`A resposta correta é ${ans}.`)}})
+function renderCards(){
+ const termo=busca.value.toLowerCase(), grupo=document.querySelector('.filter.active').dataset.group;
+ cards.innerHTML='';
+ categorias.filter(c=>(grupo==='Todas'||c.group===grupo)&&(c.title+' '+c.skill+' '+c.group).toLowerCase().includes(termo)).forEach(c=>{
+   const el=document.createElement('article');
+   el.innerHTML=`<div class="card-icon">${c.icon}</div><div class="card-title">${c.title}</div><div class="card-skill">${c.skill}</div><div class="card-footer"><span class="tag">${c.group}</span><span class="count">100 atividades</span></div>`;
+   el.onclick=()=>{atual=c;idx=0;renderActivity();document.getElementById('pratica').scrollIntoView({behavior:'smooth'})};
+   cards.appendChild(el);
+ });
 }
-
-function math(){
- const seed=round*67+(level==='Inicial'?7:level==='Intermediário'?14:21),kind=round%6;let q,ans,choices;
- if(kind===0){let a=1+r(seed,12),b=1+r(seed+1,10);ans=a+b;q=`Quanto é ${a} + ${b}?`}
- else if(kind===1){let a=5+r(seed,15),b=1+r(seed+1,a-1);ans=a-b;q=`Quanto é ${a} − ${b}?`}
- else if(kind===2){let a=2+r(seed,8),b=2+r(seed+1,8);ans=a*b;q=`Quanto é ${a} × ${b}?`}
- else if(kind===3){let b=2+r(seed,8),res=2+r(seed+1,8),a=b*res;ans=res;q=`Quanto é ${a} ÷ ${b}?`}
- else if(kind===4){let a=2+r(seed,10),b=1+r(seed+1,8);ans=a+b;q=`Ana tinha ${a} figurinhas e ganhou mais ${b}. Quantas tem agora?`}
- else{let a=5+r(seed,10),b=1+r(seed+1,a-1);ans=a-b;q=`Havia ${a} lápis. ${b} foram usados. Quantos restaram?`}
- choices=shuffle([ans,ans+1,Math.max(0,ans-1)],seed+41);
- gameArea.innerHTML=`<div class="prompt-center"><div class="prompt-emoji">🔢</div><div class="instruction">${q}</div><div class="choice-grid">${choices.map(x=>`<button class="choice" data-a="${x}">${x}</button>`).join('')}</div></div>`;
- gameArea.querySelectorAll('.choice').forEach(b=>b.onclick=()=>{gameArea.querySelectorAll('.choice').forEach(x=>x.disabled=true);if(+b.dataset.a===ans){b.classList.add('correct');register(true)}else{b.classList.add('wrong');register(false,`A resposta correta é ${ans}.`)}})
+function renderActivity(){
+ const a=activity(atual,idx,nivel);
+ document.getElementById('grupoAtual').textContent=atual.group;document.getElementById('categoriaAtual').textContent=atual.title;document.getElementById('skillAtual').textContent=atual.skill;
+ document.getElementById('contador').textContent=`Atividade ${idx+1} de 100`;document.getElementById('metaNivel').textContent=`Nível ${nivel}`;document.getElementById('bar').style.width=`${idx+1}%`;
+ document.getElementById('emoji').textContent=a.emoji;document.getElementById('pergunta').textContent=a.q;
+ const ops=document.getElementById('opcoes');ops.innerHTML='';const fb=document.getElementById('feedback');fb.textContent='';fb.className='feedback';
+ a.op.forEach(o=>{const b=document.createElement('button');b.className='option';b.textContent=o;b.onclick=()=>answer(b,o,a.ans);ops.appendChild(b)});
 }
+function answer(btn,r,c){document.querySelectorAll('.option').forEach(x=>x.disabled=true);respondidas++;if(r===c){btn.classList.add('correct');document.getElementById('feedback').textContent='Muito bem! Resposta correta.';document.getElementById('feedback').classList.add('ok');acertos++}else{btn.classList.add('wrong');[...document.querySelectorAll('.option')].find(x=>x.textContent===c)?.classList.add('correct');document.getElementById('feedback').textContent=`A resposta correta é: ${c}`;document.getElementById('feedback').classList.add('no')}localStorage.setItem('atea8_acertos',acertos);localStorage.setItem('atea8_resp',respondidas);dash()}
+function dash(){document.getElementById('acertos').textContent=acertos;document.getElementById('respondidas').textContent=respondidas;document.getElementById('percentual').textContent=respondidas?Math.round(acertos/respondidas*100)+'%':'0%'}
 
-document.querySelectorAll('.level').forEach(b=>b.onclick=()=>{document.querySelectorAll('.level').forEach(x=>x.classList.remove('active'));b.classList.add('active');level=b.dataset.level;round=0;renderGame()});
-document.getElementById('nextRound').onclick=()=>{round=(round+1)%100;renderGame()};
-document.getElementById('prevRound').onclick=()=>{round=(round+99)%100;renderGame()};
-document.getElementById('ouvir').onclick=()=>say(document.querySelector('.instruction')?.innerText||current.desc);
-document.getElementById('surpresa').onclick=()=>{current=games[r(Date.now(),games.length)];round=r(Date.now()+17,100);renderGame();document.getElementById('play').scrollIntoView({behavior:'smooth'})};
-renderCards();renderGame();updateScore();
+busca.oninput=renderCards;
+document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderCards()});
+document.querySelectorAll('.level').forEach(b=>b.onclick=()=>{document.querySelectorAll('.level').forEach(x=>x.classList.remove('active'));b.classList.add('active');nivel=b.dataset.level;idx=0;renderActivity()});
+document.getElementById('proxima').onclick=()=>{idx=(idx+1)%100;renderActivity()};
+document.getElementById('anterior').onclick=()=>{idx=(idx+99)%100;renderActivity()};
+document.getElementById('surpresa').onclick=()=>{atual=categorias[Date.now()%categorias.length];idx=Date.now()%100;renderActivity();document.getElementById('pratica').scrollIntoView({behavior:'smooth'})};
+document.getElementById('ouvir').onclick=()=>{if('speechSynthesis'in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(document.getElementById('pergunta').textContent);u.lang='pt-BR';speechSynthesis.speak(u)}};
+document.getElementById('zerar').onclick=()=>{localStorage.removeItem('atea8_acertos');localStorage.removeItem('atea8_resp');acertos=0;respondidas=0;dash()};
+renderCards();renderActivity();dash();
