@@ -4,7 +4,30 @@
 <section class="stats"><article><b>22.000</b><span>atividades</span></article><article><b>110</b><span>categorias</span></article><article><b>200</b><span>por categoria</span></article><article><b>4</b><span>blocos pedagógicos</span></article></section>
 <section class="mode"><button data-mode="student" class="active">🎓 Modo aluno</button><button data-mode="teacher">👩‍🏫 Modo professor</button></section>
 <section class="panels"><article><div class="head"><div><small>PERFIS</small><h2>Aluno atual</h2></div><button id="profilesBtn">Gerenciar</button></div><div class="profile"><span>👤</span><div><b id="studentName">Aluno</b><small id="studentGoal">Meta: aprendizagem geral</small></div></div></article><article><small>ADAPTAÇÃO TEA</small><h2>Preferências</h2><div class="settings"><label>Modo tranquilo <input id="calmMode" type="checkbox" checked></label><label>Áudio automático <input id="autoVoice" type="checkbox"></label><label>Fonte grande <input id="largeText" type="checkbox"></label><label>Reduzir animações <input id="reduceMotion" type="checkbox" checked></label><label>2 alternativas <input id="twoChoices" type="checkbox"></label><label>Dificuldade adaptativa <input id="adaptive" type="checkbox" checked></label></div></article></section>
-<section id="teacherPanel" class="teacher" hidden><div class="head"><div><small>ÁREA PROFISSIONAL</small><h2>Painel do professor</h2></div><button id="printBtn">🖨️ Imprimir relatório</button></div><div class="teachergrid"><article><h3>Mapa de habilidades</h3><div id="skillMap"></div></article><article><h3>Trilha personalizada</h3><div id="favorites"></div></article><article><h3>Recomendação</h3><div id="recommendation">Realize algumas atividades.</div></article></div></section>
+<section id="teacherPanel" class="teacher" hidden>
+<div class="head">
+  <div><small>ÁREA PROFISSIONAL</small><h2>Painel do professor</h2><p class="teacherIntro">Acompanhe cada aluno, identifique habilidades consolidadas, dificuldades e intervenções sugeridas.</p></div>
+  <div class="teacherActions">
+    <select id="reportPeriod"><option value="all">Todo o período</option><option value="30">Últimos 30 dias</option><option value="7">Últimos 7 dias</option></select>
+    <button id="printBtn">📄 Exportar PDF</button><button id="csvBtn">⬇️ Exportar CSV</button>
+  </div>
+</div>
+<div id="teacherReport" class="teacherReport">
+  <div class="reportHeader"><div><span class="reportKicker">RELATÓRIO PEDAGÓGICO INDIVIDUAL</span><h3 id="reportStudentName">Aluno</h3><p id="reportStudentMeta"></p></div><div class="reportDate" id="reportDate"></div></div>
+  <div class="reportSummary"><article><b id="reportAnswered">0</b><span>atividades respondidas</span></article><article><b id="reportAccuracy">0%</b><span>aproveitamento</span></article><article><b id="reportMastered">0</b><span>habilidades dominadas</span></article><article><b id="reportDeveloping">0</b><span>em desenvolvimento</span></article></div>
+  <div class="teachergrid enhanced">
+    <article><h3>Mapa de habilidades</h3><p class="teacherHint">Dominada ≥ 85%; Em desenvolvimento 60–84%; Precisa de apoio &lt; 60%.</p><div id="skillMap"></div></article>
+    <article><h3>Categorias com maior dificuldade</h3><div id="hardestCategories" class="rankList"></div></article>
+    <article><h3>Recomendações de intervenção</h3><div id="recommendation" class="interventionList">Realize algumas atividades.</div></article>
+  </div>
+  <div class="teachergrid lower">
+    <article><h3>Histórico de desempenho</h3><div id="historyChart" class="historyChart"></div><div class="historyLegend">Últimas respostas registradas</div></article>
+    <article><h3>Trilha personalizada / Favoritos</h3><div id="favorites"></div></article>
+    <article><h3>Diagnóstico inicial</h3><div id="diagnosticSummary" class="diagnosticSummary">Ainda não realizado.</div></article>
+  </div>
+  <div class="historyTableWrap"><h3>Registro recente</h3><table><thead><tr><th>Data</th><th>Categoria</th><th>Nível</th><th>Bloco</th><th>Resultado</th></tr></thead><tbody id="historyBody"></tbody></table></div>
+</div>
+</section>
 <section id="cats"><div class="head"><div><small>CONTEÚDO</small><h2>Escolha uma categoria</h2></div><input id="search" placeholder="Pesquisar categoria..."></div><div id="filters" class="filters"></div><div id="cards" class="cards"></div></section>
 <section id="practice"><div class="head"><div><small id="groupNow">ALFABETIZAÇÃO</small><h2 id="catNow">Rimas</h2><p id="skillNow">200 atividades em 4 blocos de 50</p></div><div class="levels"><button data-level="Inicial" class="active">Inicial</button><button data-level="Intermediário">Intermediário</button><button data-level="Avançado">Avançado</button></div></div>
 <div class="blocks"><button data-block="0" class="active">1. Básico</button><button data-block="1">2. Consolidação</button><button data-block="2">3. Aplicação</button><button data-block="3">4. Desafio</button></div>
