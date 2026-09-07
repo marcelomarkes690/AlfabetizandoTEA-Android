@@ -10,3 +10,25 @@
 .diagnosticSummary{background:#fafafd;border:1px solid var(--line);border-radius:13px;padding:12px;line-height:1.5}.historyTableWrap{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;overflow:auto}.historyTableWrap h3{margin:0 0 10px}.historyTableWrap table{min-width:620px}.resultBadge{display:inline-block;padding:4px 8px;border-radius:999px;font-size:.72rem;font-weight:800}.resultBadge.ok{background:#ecfaf4;color:#147b57}.resultBadge.no{background:#fff0f2;color:#a63247}
 @media(max-width:950px){.reportSummary{grid-template-columns:1fr 1fr}.teachergrid.enhanced,.teachergrid.lower{grid-template-columns:1fr}}@media(max-width:700px){.reportHeader{flex-direction:column}.reportDate{text-align:left}.teacherActions{width:100%}.teacherActions>*{flex:1}}
 @media print{body{background:#fff!important;font-size:11pt!important}.teacher{background:#fff!important;padding:0!important}.teacher>.head{display:none!important}.teacherReport{display:block!important}.reportHeader,.reportSummary article,.teachergrid article,.historyTableWrap{box-shadow:none!important;break-inside:avoid}.reportSummary{margin:12px 0}.teachergrid.enhanced,.teachergrid.lower{display:grid!important;grid-template-columns:1fr 1fr!important;margin:12px 0}.historyChart{height:110px}.dashboard{display:none!important}@page{size:A4;margin:12mm}}
+
+.pedagogicalReportEditor{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;display:grid;gap:16px}
+.pedagogicalHead{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.pedagogicalHead.compact{align-items:center}
+.pedagogicalHead h3{margin:4px 0}.pedagogicalHead p{margin:4px 0 0;color:var(--muted);font-size:.84rem}
+.teacherSaveBtn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 14px;cursor:pointer;font-weight:800}
+.pedagogicalGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pedagogicalGrid label{display:grid;gap:6px}
+.pedagogicalGrid label span{font-size:.78rem;font-weight:850;color:#4e536a}
+.pedagogicalGrid input,.pedagogicalGrid textarea,.autoConclusionBox textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:11px;background:#fbfbfe;color:var(--ink);resize:vertical}
+.pedagogicalGrid input:focus,.pedagogicalGrid textarea:focus,.autoConclusionBox textarea:focus{outline:2px solid #d7d2ff;border-color:#aca3ff}
+.wideField{grid-column:1/-1}
+.autoConclusionBox{background:#f8f7ff;border:1px solid #ddd8ff;border-radius:16px;padding:14px}
+.autoConclusionBox textarea{background:#fff;line-height:1.55}
+.saveToast{position:fixed;right:18px;bottom:18px;background:#20243a;color:#fff;padding:10px 14px;border-radius:12px;z-index:99;box-shadow:0 12px 30px #0003}
+@media(max-width:700px){.pedagogicalGrid{grid-template-columns:1fr}.wideField{grid-column:auto}.pedagogicalHead{flex-direction:column}.pedagogicalHead .teacherActions{width:100%}}
+@media print{
+  .pedagogicalReportEditor{border:0!important;padding:0!important;break-before:page}
+  .pedagogicalReportEditor input,.pedagogicalReportEditor textarea{border:0!important;background:#fff!important;padding:0!important;overflow:visible!important}
+  .teacherSaveBtn,#generateConclusion,#copyConclusion{display:none!important}
+  .autoConclusionBox{border:0!important;background:#fff!important;padding:0!important}
+}

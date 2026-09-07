@@ -25,6 +25,55 @@
     <article><h3>Trilha personalizada / Favoritos</h3><div id="favorites"></div></article>
     <article><h3>Diagnóstico inicial</h3><div id="diagnosticSummary" class="diagnosticSummary">Ainda não realizado.</div></article>
   </div>
+  <div class="pedagogicalReportEditor">
+    <div class="pedagogicalHead">
+      <div>
+        <span class="reportKicker">PLANEJAMENTO E REGISTRO PEDAGÓGICO</span>
+        <h3>Relatório pedagógico ampliado</h3>
+        <p>Campos editáveis por aluno. As informações ficam salvas no dispositivo.</p>
+      </div>
+      <button id="savePedagogicalReport" class="teacherSaveBtn">💾 Salvar relatório</button>
+    </div>
+
+    <div class="pedagogicalGrid">
+      <label>
+        <span>Período de acompanhamento</span>
+        <input id="followupPeriod" placeholder="Ex.: 01/09/2026 a 30/09/2026">
+      </label>
+      <label>
+        <span>Professor(a) responsável</span>
+        <input id="teacherName" placeholder="Nome do(a) professor(a)">
+      </label>
+      <label class="wideField">
+        <span>Metas individuais</span>
+        <textarea id="individualGoals" rows="4" placeholder="Ex.: ampliar leitura de palavras simples; consolidar adição até 20; aumentar autonomia na rotina escolar."></textarea>
+      </label>
+      <label class="wideField">
+        <span>Habilidades prioritárias</span>
+        <textarea id="prioritySkills" rows="4" placeholder="Registre as habilidades prioritárias para o próximo período."></textarea>
+      </label>
+      <label class="wideField">
+        <span>Observações do professor</span>
+        <textarea id="teacherNotes" rows="6" placeholder="Registre participação, estratégias que funcionaram, comportamentos observados, formas de apoio, generalização e outros aspectos relevantes."></textarea>
+      </label>
+      <label class="wideField">
+        <span>Sugestões de intervenção pedagógica</span>
+        <textarea id="interventionNotes" rows="6" placeholder="O aplicativo sugere intervenções automaticamente, mas você pode complementar ou substituir este texto."></textarea>
+      </label>
+    </div>
+
+    <div class="autoConclusionBox">
+      <div class="pedagogicalHead compact">
+        <div><span class="reportKicker">CONCLUSÃO AUTOMÁTICA</span><h3>Texto para registro pedagógico</h3></div>
+        <div class="teacherActions">
+          <button id="generateConclusion">✨ Gerar conclusão</button>
+          <button id="copyConclusion">📋 Copiar texto</button>
+        </div>
+      </div>
+      <textarea id="autoConclusion" rows="10" placeholder="A conclusão será gerada a partir do diagnóstico, desempenho, habilidades, dificuldades, metas e observações registradas."></textarea>
+    </div>
+  </div>
+
   <div class="historyTableWrap"><h3>Registro recente</h3><table><thead><tr><th>Data</th><th>Categoria</th><th>Nível</th><th>Bloco</th><th>Resultado</th></tr></thead><tbody id="historyBody"></tbody></table></div>
 </div>
 </section>
