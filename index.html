@@ -3,121 +3,116 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Alfabetizando TEA</title>
-  <meta name="description" content="Aplicativo educacional inclusivo para alfabetização e matemática." />
+  <title>Alfabetizando TEA — Completo</title>
+  <meta name="description" content="Aplicativo educacional inclusivo com 5.000 atividades de alfabetização, linguagem, atenção, memória e matemática." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="hero">
-    <div class="hero-inner">
-      <div>
-        <span class="badge">Educação inclusiva • Alfabetização • Matemática</span>
-        <h1>Alfabetizando TEA</h1>
-        <p>Atividades lúdicas e estruturadas para apoiar a aprendizagem, com interface simples, linguagem objetiva e recursos de acessibilidade.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#atividades">Começar atividades</a>
-          <button class="btn ghost" id="surpresa">Surpreenda-me</button>
-        </div>
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="pill">Educação inclusiva • Alfabetização • Matemática</span>
+      <h1>Alfabetizando TEA</h1>
+      <p class="lead">5.000 atividades organizadas em 25 categorias, com três níveis de dificuldade, leitura por voz, progresso local e navegação simples para computador e celular.</p>
+      <div class="actions">
+        <a class="btn primary" href="#categorias">Começar atividades</a>
+        <button class="btn secondary" id="surpresaTopo">Surpreenda-me</button>
       </div>
-      <div class="hero-card">
-        <div class="icon-grid">
-          <span>🔤</span><span>🧩</span><span>🔢</span><span>🧠</span>
-        </div>
-        <strong>Aprender passo a passo</strong>
-        <small>Prof. Dr. Marcelo Marques de Araújo – UFPA</small>
+      <div class="author">Prof. Dr. Marcelo Marques de Araújo – UFPA</div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-icons"><span>🔤</span><span>🧩</span><span>🔢</span><span>🧠</span></div>
+      <strong>Aprender passo a passo</strong>
+      <small>Alfabetização, linguagem, cognição e matemática</small>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="stats">
+    <article><strong>5.000</strong><span>atividades</span></article>
+    <article><strong>25</strong><span>categorias</span></article>
+    <article><strong>3</strong><span>níveis</span></article>
+    <article><strong>100%</strong><span>responsivo</span></article>
+  </section>
+
+  <section id="categorias">
+    <div class="section-head">
+      <div><span class="eyebrow">Escolha uma trilha</span><h2>Categorias de atividades</h2></div>
+      <label class="search"><span>🔎</span><input id="busca" type="search" placeholder="Pesquisar categoria..."></label>
+    </div>
+    <div class="filters">
+      <button class="filter active" data-group="Todas">Todas</button>
+      <button class="filter" data-group="Alfabetização">Alfabetização</button>
+      <button class="filter" data-group="Linguagem">Linguagem</button>
+      <button class="filter" data-group="Cognição">Cognição</button>
+      <button class="filter" data-group="Matemática">Matemática</button>
+    </div>
+    <div class="cards" id="cards"></div>
+  </section>
+
+  <section class="practice" id="pratica">
+    <div class="section-head practice-head">
+      <div>
+        <span class="eyebrow" id="categoriaAtual">Letras e sons</span>
+        <h2 id="tituloAtividade">Atividade</h2>
+      </div>
+      <div class="level-picker">
+        <button class="level active" data-level="Inicial">Inicial</button>
+        <button class="level" data-level="Intermediário">Intermediário</button>
+        <button class="level" data-level="Avançado">Avançado</button>
       </div>
     </div>
-  </header>
 
-  <main>
-    <section class="stats">
-      <article><strong>8</strong><span>trilhas principais</span></article>
-      <article><strong>24+</strong><span>categorias de atividades</span></article>
-      <article><strong>3</strong><span>níveis de dificuldade</span></article>
-      <article><strong>100%</strong><span>responsivo para celular</span></article>
-    </section>
-
-    <section id="atividades">
-      <div class="section-head">
+    <div class="activity-box">
+      <div class="progressline"><div id="bar"></div></div>
+      <div class="activity-meta">
+        <span id="contador">Atividade 1 de 200</span>
+        <span id="grupoAtual">Alfabetização</span>
+      </div>
+      <div class="prompt">
+        <div class="big-emoji" id="emoji">🔤</div>
         <div>
-          <span class="eyebrow">Escolha uma trilha</span>
-          <h2>Atividades interativas</h2>
-        </div>
-        <label class="search">
-          <span>🔎</span>
-          <input id="busca" type="search" placeholder="Pesquisar atividade..." />
-        </label>
-      </div>
-
-      <div id="cards" class="cards"></div>
-    </section>
-
-    <section class="practice">
-      <div class="section-head">
-        <div>
-          <span class="eyebrow">Área de prática</span>
-          <h2 id="tituloAtividade">Forme a palavra</h2>
-        </div>
-        <div class="level-picker">
-          <button data-level="Inicial" class="level active">Inicial</button>
-          <button data-level="Intermediário" class="level">Intermediário</button>
-          <button data-level="Avançado" class="level">Avançado</button>
+          <span class="mini">Leia, observe e responda</span>
+          <h3 id="pergunta">Pergunta</h3>
         </div>
       </div>
-
-      <div class="activity-box">
-        <div class="prompt">
-          <div class="big-emoji" id="emoji">🐱</div>
-          <div>
-            <span class="mini">Observe e responda</span>
-            <h3 id="pergunta">Qual palavra corresponde à imagem?</h3>
-          </div>
-        </div>
-        <div id="opcoes" class="options"></div>
-        <div class="feedback" id="feedback" aria-live="polite"></div>
-        <div class="activity-actions">
-          <button class="btn ghost" id="ouvir">🔊 Ouvir</button>
-          <button class="btn primary" id="proxima">Próxima atividade</button>
-        </div>
+      <div id="opcoes" class="options"></div>
+      <div class="feedback" id="feedback" aria-live="polite"></div>
+      <div class="activity-actions">
+        <button class="btn ghost" id="ouvir">🔊 Ouvir</button>
+        <button class="btn ghost" id="anterior">← Anterior</button>
+        <button class="btn primary" id="proxima">Próxima →</button>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="features">
-      <article>
-        <span>🧘</span>
-        <h3>Modo tranquilo</h3>
-        <p>Layout limpo, poucos estímulos simultâneos e foco em uma tarefa por vez.</p>
-      </article>
-      <article>
-        <span>🔊</span>
-        <h3>Leitura por voz</h3>
-        <p>Os enunciados podem ser lidos em voz alta pelo navegador quando disponível.</p>
-      </article>
-      <article>
-        <span>📈</span>
-        <h3>Progresso local</h3>
-        <p>O navegador salva a quantidade de respostas corretas neste dispositivo.</p>
-      </article>
-    </section>
+  <section class="features">
+    <article><span>🧘</span><h3>Modo tranquilo</h3><p>Uma tarefa por vez, com interface limpa e previsível.</p></article>
+    <article><span>🔊</span><h3>Leitura por voz</h3><p>O navegador pode ler o enunciado em português do Brasil.</p></article>
+    <article><span>📈</span><h3>Progresso salvo</h3><p>Acertos e atividades concluídas ficam salvos neste dispositivo.</p></article>
+    <article><span>🎯</span><h3>Três níveis</h3><p>Inicial, intermediário e avançado em todas as categorias.</p></article>
+  </section>
 
-    <section class="progress">
-      <div>
-        <span class="eyebrow">Meu progresso</span>
-        <h2>Conquistas neste dispositivo</h2>
-      </div>
-      <div class="progress-card">
-        <strong id="acertos">0</strong>
-        <span>respostas corretas</span>
-        <button class="link-btn" id="zerar">Zerar progresso</button>
-      </div>
-    </section>
-  </main>
+  <section class="dashboard">
+    <div>
+      <span class="eyebrow">Meu progresso</span>
+      <h2>Conquistas neste dispositivo</h2>
+      <p>Os dados são salvos apenas no navegador utilizado.</p>
+    </div>
+    <div class="dash-cards">
+      <article><strong id="acertos">0</strong><span>acertos</span></article>
+      <article><strong id="respondidas">0</strong><span>respondidas</span></article>
+      <article><strong id="percentual">0%</strong><span>aproveitamento</span></article>
+    </div>
+    <button class="link-btn" id="zerar">Zerar progresso</button>
+  </section>
+</main>
 
-  <footer>
-    <strong>Alfabetizando TEA</strong>
-    <span>Recurso educacional de apoio pedagógico.</span>
-  </footer>
-
-  <script src="script.js"></script>
+<footer>
+  <strong>Alfabetizando TEA</strong>
+  <span>Recurso educacional de apoio pedagógico • Prof. Dr. Marcelo Marques de Araújo – UFPA</span>
+</footer>
+<script src="script.js"></script>
 </body>
 </html>
