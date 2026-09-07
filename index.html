@@ -1,135 +1,14 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#6557f5">
-<title>Alfabetizando TEA — PRO</title>
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<header class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <span class="pill">Educação inclusiva • Alfabetização • Matemática • TEA</span>
-      <h1>Alfabetizando TEA</h1>
-      <p class="lead">Versão PRO com 8.000 atividades, perfil do aluno, adaptação automática de dificuldade, painel de progresso, modo tranquilo, acessibilidade e funcionamento instalável como aplicativo.</p>
-      <div class="actions">
-        <a class="btn primary" href="#categorias">Começar</a>
-        <button class="btn secondary" id="installBtn" hidden>Instalar aplicativo</button>
-      </div>
-      <div class="author">Prof. Dr. Marcelo Marques de Araújo – UFPA</div>
-    </div>
-    <div class="hero-card">
-      <div class="hero-icons"><span>🧠</span><span>📈</span><span>⚙️</span><span>📱</span></div>
-      <strong>Personalizado e adaptativo</strong>
-      <small>O aplicativo ajusta o nível conforme o desempenho e salva o progresso no dispositivo.</small>
-    </div>
-  </div>
-</header>
-
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#6557f5"><title>Alfabetizando TEA ULTRA</title><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg"><link rel="stylesheet" href="style.css"></head><body>
+<header><div class="wrap hero"><div><span class="pill">Plataforma adaptativa • Alfabetização • Matemática • TEA</span><h1>Alfabetizando TEA</h1><p>Versão ULTRA com 11.000 atividades, avaliação diagnóstica, múltiplos perfis, mapa de habilidades, modo professor/aluno, relatórios, trilhas personalizadas e adaptação automática.</p><div class="actions"><button id="diagnosticBtn">Fazer diagnóstico</button><a href="#cats">Explorar atividades</a><button id="installBtn" hidden>Instalar aplicativo</button></div><small>Prof. Dr. Marcelo Marques de Araújo – UFPA</small></div><div class="heroCard"><b>110 categorias × 100 atividades</b><span>11.000 atividades acadêmicas, funcionais, sociais e cognitivas.</span></div></div></header>
 <main class="wrap">
-<section class="stats">
-  <article><strong>8.000</strong><span>atividades</span></article>
-  <article><strong>80</strong><span>categorias</span></article>
-  <article><strong>3</strong><span>níveis</span></article>
-  <article><strong>PWA</strong><span>instalável/offline</span></article>
-</section>
-
-<section class="control-panel">
-  <div class="panel-card">
-    <div class="panel-head"><div><span class="eyebrow">Perfil do aluno</span><h2>Quem está aprendendo?</h2></div><button class="btn ghost small" id="editProfile">Editar</button></div>
-    <div class="profile-line"><div class="avatar">👤</div><div><strong id="studentName">Aluno</strong><span id="studentGoal">Meta: alfabetização e matemática</span></div></div>
-  </div>
-
-  <div class="panel-card">
-    <div class="panel-head"><div><span class="eyebrow">Adaptação TEA</span><h2>Configurações</h2></div></div>
-    <div class="settings-grid">
-      <label><span>Modo tranquilo</span><input type="checkbox" id="calmMode" checked></label>
-      <label><span>Áudio automático</span><input type="checkbox" id="autoVoice"></label>
-      <label><span>Fonte grande</span><input type="checkbox" id="largeText"></label>
-      <label><span>Reduzir animações</span><input type="checkbox" id="reduceMotion" checked></label>
-      <label><span>2 alternativas</span><input type="checkbox" id="twoChoices"></label>
-      <label><span>Dificuldade adaptativa</span><input type="checkbox" id="adaptive" checked></label>
-    </div>
-  </div>
-</section>
-
-<section id="categorias">
-  <div class="section-head">
-    <div><span class="eyebrow">Conteúdo</span><h2>Escolha uma categoria</h2></div>
-    <label class="search">🔎 <input id="busca" type="search" placeholder="Pesquisar categoria..."></label>
-  </div>
-  <div class="filters">
-    <button class="filter active" data-group="Todas">Todas</button>
-    <button class="filter" data-group="Alfabetização">Alfabetização</button>
-    <button class="filter" data-group="Matemática">Matemática</button>
-    <button class="filter" data-group="Cognição e atenção">Cognição</button>
-    <button class="filter" data-group="Matemática funcional">Matemática funcional</button>
-    <button class="filter" data-group="Comunicação e linguagem">Linguagem</button>
-    <button class="filter" data-group="Trilhas pedagógicas">Trilhas</button>
-  </div>
-  <div id="cards" class="cards"></div>
-</section>
-
-<section id="pratica" class="practice">
-  <div class="section-head">
-    <div><span class="eyebrow" id="grupoAtual">Alfabetização</span><h2 id="categoriaAtual">Rimas</h2><p class="skill" id="skillAtual">Habilidade</p></div>
-    <div class="level-picker">
-      <button class="level active" data-level="Inicial">Inicial</button>
-      <button class="level" data-level="Intermediário">Intermediário</button>
-      <button class="level" data-level="Avançado">Avançado</button>
-    </div>
-  </div>
-  <div class="activity-box">
-    <div class="progressline"><div id="bar"></div></div>
-    <div class="activity-meta"><span id="contador">Atividade 1 de 100</span><span id="adaptiveLabel">Adaptativo ativo</span></div>
-    <div class="prompt">
-      <div class="big-emoji" id="emoji">🎵</div>
-      <div><span class="mini">Leia, observe e responda</span><h3 id="pergunta">Pergunta</h3></div>
-    </div>
-    <div id="opcoes" class="options"></div>
-    <div id="feedback" class="feedback" aria-live="polite"></div>
-    <div class="activity-actions">
-      <button class="btn ghost" id="ouvir">🔊 Ouvir</button>
-      <button class="btn ghost" id="anterior">← Anterior</button>
-      <button class="btn primary" id="proxima">Próxima →</button>
-    </div>
-  </div>
-</section>
-
-<section class="dashboard">
-  <div class="section-head"><div><span class="eyebrow">Painel de progresso</span><h2>Desempenho</h2></div><button class="btn ghost" id="printReport">🖨️ Imprimir relatório</button></div>
-  <div class="dash-cards">
-    <article><strong id="acertos">0</strong><span>acertos</span></article>
-    <article><strong id="respondidas">0</strong><span>respondidas</span></article>
-    <article><strong id="percentual">0%</strong><span>aproveitamento</span></article>
-    <article><strong id="streak">0</strong><span>sequência de acertos</span></article>
-  </div>
-  <div class="progress-table-wrap">
-    <table id="progressTable"><thead><tr><th>Categoria</th><th>Respondidas</th><th>Acertos</th><th>%</th></tr></thead><tbody></tbody></table>
-  </div>
-  <div class="recommendation" id="recommendation">Faça algumas atividades para receber recomendações.</div>
-  <button class="link-btn" id="zerar">Zerar progresso</button>
-</section>
+<section class="stats"><article><b>11.000</b><span>atividades</span></article><article><b>110</b><span>categorias</span></article><article><b>100</b><span>por categoria</span></article><article><b>2</b><span>modos de uso</span></article></section>
+<section class="mode"><button data-mode="student" class="active">🎓 Modo aluno</button><button data-mode="teacher">👩‍🏫 Modo professor</button></section>
+<section class="panels"><article><div class="head"><div><small>PERFIS</small><h2>Aluno atual</h2></div><button id="profilesBtn">Gerenciar</button></div><div class="profile"><span>👤</span><div><b id="studentName">Aluno</b><small id="studentGoal">Meta: aprendizagem geral</small></div></div></article><article><small>ADAPTAÇÃO TEA</small><h2>Preferências</h2><div class="settings"><label>Modo tranquilo <input id="calmMode" type="checkbox" checked></label><label>Áudio automático <input id="autoVoice" type="checkbox"></label><label>Fonte grande <input id="largeText" type="checkbox"></label><label>Reduzir animações <input id="reduceMotion" type="checkbox" checked></label><label>2 alternativas <input id="twoChoices" type="checkbox"></label><label>Dificuldade adaptativa <input id="adaptive" type="checkbox" checked></label></div></article></section>
+<section id="teacherPanel" class="teacher" hidden><div class="head"><div><small>ÁREA PROFISSIONAL</small><h2>Painel do professor</h2></div><button id="printBtn">🖨️ Imprimir relatório</button></div><div class="teachergrid"><article><h3>Mapa de habilidades</h3><div id="skillMap"></div></article><article><h3>Trilha personalizada</h3><div id="favorites"></div></article><article><h3>Recomendação</h3><div id="recommendation">Realize algumas atividades.</div></article></div></section>
+<section id="cats"><div class="head"><div><small>CONTEÚDO</small><h2>Escolha uma categoria</h2></div><input id="search" placeholder="Pesquisar categoria..."></div><div id="filters" class="filters"></div><div id="cards" class="cards"></div></section>
+<section id="practice"><div class="head"><div><small id="groupNow">ALFABETIZAÇÃO</small><h2 id="catNow">Rimas</h2><p id="skillNow">100 atividades graduadas</p></div><div class="levels"><button data-level="Inicial" class="active">Inicial</button><button data-level="Intermediário">Intermediário</button><button data-level="Avançado">Avançado</button></div></div><div class="activity"><div class="bar"><i id="bar"></i></div><div class="meta"><span id="counter">Atividade 1 de 100</span><span id="adaptiveLabel">Adaptativo ativo</span></div><div class="prompt"><div id="emoji">🎵</div><h3 id="question"></h3></div><div id="answers"></div><div id="feedback"></div><div class="nav"><button id="favBtn">☆ Favoritar</button><button id="speakBtn">🔊 Ouvir</button><button id="prevBtn">← Anterior</button><button id="nextBtn">Próxima →</button></div></div></section>
+<section class="dashboard"><div class="head"><div><small>PAINEL DE PROGRESSO</small><h2>Desempenho do aluno</h2></div></div><div class="dash"><article><b id="hits">0</b><span>acertos</span></article><article><b id="done">0</b><span>respondidas</span></article><article><b id="rate">0%</b><span>aproveitamento</span></article><article><b id="streak">0</b><span>sequência</span></article></div><div class="tablewrap"><table><thead><tr><th>Categoria</th><th>Respondidas</th><th>Acertos</th><th>%</th></tr></thead><tbody id="progressBody"></tbody></table></div><button id="resetBtn">Zerar progresso deste aluno</button></section>
 </main>
-
-<div class="modal" id="profileModal" hidden>
-  <div class="modal-card">
-    <h2>Perfil do aluno</h2>
-    <label>Nome <input id="profileName" maxlength="30" placeholder="Nome ou apelido"></label>
-    <label>Objetivo principal
-      <select id="profileGoal">
-        <option>Alfabetização</option><option>Matemática</option><option>Comunicação</option><option>Cognição e atenção</option><option>Aprendizagem geral</option>
-      </select>
-    </label>
-    <div class="modal-actions"><button class="btn ghost" id="closeProfile">Cancelar</button><button class="btn primary" id="saveProfile">Salvar</button></div>
-  </div>
-</div>
-
-<footer><strong>Alfabetizando TEA</strong><span>Recurso educacional de apoio pedagógico • Prof. Dr. Marcelo Marques de Araújo – UFPA</span></footer>
-<script src="script.js"></script>
-</body>
-</html>
+<div id="profilesModal" class="modal" hidden><div class="modalCard"><button class="close" id="closeProfiles">×</button><h2>Gerenciar perfis</h2><div id="profilesList"></div><hr><input id="newName" placeholder="Nome ou apelido"><select id="newGoal"><option>Alfabetização</option><option>Matemática</option><option>Comunicação</option><option>Cognição e atenção</option><option>Autonomia</option><option>Aprendizagem geral</option></select><button id="addProfile">Adicionar perfil</button></div></div>
+<div id="diagModal" class="modal" hidden><div class="modalCard"><button class="close" id="closeDiag">×</button><h2>Avaliação diagnóstica</h2><div id="diagArea">12 questões curtas de alfabetização, matemática, atenção, linguagem e autonomia.</div><button id="diagNext">Começar</button></div></div>
+<footer>Alfabetizando TEA • Prof. Dr. Marcelo Marques de Araújo – UFPA</footer><script src="script.js"></script></body></html>

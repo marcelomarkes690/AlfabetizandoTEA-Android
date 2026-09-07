@@ -1,11 +1,10 @@
 {
-  "name": "Alfabetizando TEA",
+  "name": "Alfabetizando TEA ULTRA",
   "short_name": "AlfabetizandoTEA",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#f6f7fb",
   "theme_color": "#6557f5",
-  "description": "Aplicativo educacional inclusivo para alfabetização, matemática, cognição e comunicação.",
   "icons": [
     {
       "src": "icon.svg",
