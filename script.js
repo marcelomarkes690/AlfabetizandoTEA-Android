@@ -1,99 +1,95 @@
 
 const categorias = [{"group": "Alfabetização", "title": "Rimas", "icon": "🎵", "skill": "Identificar palavras que rimam", "mode": "phonology"}, {"group": "Alfabetização", "title": "Som inicial", "icon": "🔊", "skill": "Identificar fonema inicial", "mode": "phonology"}, {"group": "Alfabetização", "title": "Som final", "icon": "🔚", "skill": "Identificar fonema final", "mode": "phonology"}, {"group": "Alfabetização", "title": "Aliteração", "icon": "🗣️", "skill": "Reconhecer palavras com o mesmo som inicial", "mode": "phonology"}, {"group": "Alfabetização", "title": "Contagem de sílabas", "icon": "👏", "skill": "Segmentar palavras em sílabas", "mode": "syllable"}, {"group": "Alfabetização", "title": "Sílaba inicial", "icon": "🧩", "skill": "Identificar sílaba inicial", "mode": "syllable"}, {"group": "Alfabetização", "title": "Sílaba final", "icon": "🧱", "skill": "Identificar sílaba final", "mode": "syllable"}, {"group": "Alfabetização", "title": "Completar palavras", "icon": "✍️", "skill": "Completar letras e sílabas ausentes", "mode": "word"}, {"group": "Alfabetização", "title": "Montagem de palavras", "icon": "🔤", "skill": "Ordenar letras e sílabas", "mode": "word"}, {"group": "Alfabetização", "title": "Pares P/B", "icon": "🅿️", "skill": "Discriminar P e B", "mode": "pairs"}, {"group": "Alfabetização", "title": "Pares T/D", "icon": "🔠", "skill": "Discriminar T e D", "mode": "pairs"}, {"group": "Alfabetização", "title": "Pares F/V", "icon": "🗨️", "skill": "Discriminar F e V", "mode": "pairs"}, {"group": "Alfabetização", "title": "Pares S/Z", "icon": "🔡", "skill": "Discriminar S e Z", "mode": "pairs"}, {"group": "Alfabetização", "title": "X/CH", "icon": "📝", "skill": "Distinguir X e CH", "mode": "pairs"}, {"group": "Alfabetização", "title": "R/RR", "icon": "📚", "skill": "Distinguir R e RR", "mode": "pairs"}, {"group": "Alfabetização", "title": "M/N", "icon": "🔎", "skill": "Distinguir M e N", "mode": "pairs"}, {"group": "Alfabetização", "title": "S/SS", "icon": "✏️", "skill": "Distinguir S e SS", "mode": "pairs"}, {"group": "Alfabetização", "title": "Leitura de palavras", "icon": "📖", "skill": "Ler palavras frequentes", "mode": "reading"}, {"group": "Alfabetização", "title": "Leitura de frases", "icon": "🧾", "skill": "Compreender frases curtas", "mode": "reading"}, {"group": "Alfabetização", "title": "Ditado com áudio", "icon": "🎧", "skill": "Relacionar som e escrita", "mode": "dictation"}, {"group": "Matemática", "title": "Número e quantidade", "icon": "🔢", "skill": "Relacionar numeral e quantidade", "mode": "number"}, {"group": "Matemática", "title": "Subitização", "icon": "👀", "skill": "Reconhecer quantidades sem contar", "mode": "number"}, {"group": "Matemática", "title": "Contagem progressiva", "icon": "➡️", "skill": "Contar em ordem crescente", "mode": "sequence"}, {"group": "Matemática", "title": "Contagem regressiva", "icon": "⬅️", "skill": "Contar em ordem decrescente", "mode": "sequence"}, {"group": "Matemática", "title": "Antecessor e sucessor", "icon": "↔️", "skill": "Identificar números vizinhos", "mode": "number"}, {"group": "Matemática", "title": "Maior, menor e igual", "icon": "⚖️", "skill": "Comparar números", "mode": "compare"}, {"group": "Matemática", "title": "Composição de números", "icon": "🧮", "skill": "Compor dezenas e unidades", "mode": "place"}, {"group": "Matemática", "title": "Decomposição de números", "icon": "🧱", "skill": "Decompor números", "mode": "place"}, {"group": "Matemática", "title": "Reta numérica", "icon": "📏", "skill": "Localizar números na reta", "mode": "sequence"}, {"group": "Matemática", "title": "Pares e ímpares", "icon": "2️⃣", "skill": "Classificar números", "mode": "number"}, {"group": "Matemática", "title": "Dezenas e unidades", "icon": "🔟", "skill": "Compreender valor posicional", "mode": "place"}, {"group": "Matemática", "title": "Adição visual", "icon": "➕", "skill": "Somar com apoio visual", "mode": "add"}, {"group": "Matemática", "title": "Subtração visual", "icon": "➖", "skill": "Subtrair com apoio visual", "mode": "sub"}, {"group": "Matemática", "title": "Cálculo mental", "icon": "🧠", "skill": "Resolver operações mentalmente", "mode": "mixed"}, {"group": "Matemática", "title": "Multiplicação por grupos", "icon": "✖️", "skill": "Interpretar grupos iguais", "mode": "mult"}, {"group": "Matemática", "title": "Divisão por partilha", "icon": "➗", "skill": "Repartir igualmente", "mode": "div"}, {"group": "Matemática", "title": "Problemas matemáticos", "icon": "🧩", "skill": "Resolver situações-problema", "mode": "problem"}, {"group": "Matemática", "title": "Formas geométricas", "icon": "📐", "skill": "Reconhecer propriedades geométricas", "mode": "geometry"}, {"group": "Matemática", "title": "Simetria e padrões", "icon": "🪞", "skill": "Reconhecer simetria e regularidades", "mode": "pattern"}, {"group": "Matemática", "title": "Localização espacial", "icon": "🧭", "skill": "Usar relações espaciais", "mode": "spatial"}, {"group": "Cognição e atenção", "title": "Encontre o diferente", "icon": "🔍", "skill": "Discriminação visual", "mode": "attention"}, {"group": "Cognição e atenção", "title": "Encontre os iguais", "icon": "👯", "skill": "Pareamento visual", "mode": "attention"}, {"group": "Cognição e atenção", "title": "Memória visual", "icon": "🃏", "skill": "Memória de curto prazo", "mode": "memory"}, {"group": "Cognição e atenção", "title": "Memória auditiva", "icon": "🎧", "skill": "Memória sequencial auditiva", "mode": "memory"}, {"group": "Cognição e atenção", "title": "Sequência de ações", "icon": "🪜", "skill": "Ordenação temporal", "mode": "sequence_logic"}, {"group": "Cognição e atenção", "title": "Classificação", "icon": "🗂️", "skill": "Agrupar por atributos", "mode": "classification"}, {"group": "Cognição e atenção", "title": "Categorização", "icon": "📦", "skill": "Organizar por categorias", "mode": "classification"}, {"group": "Cognição e atenção", "title": "Atenção seletiva", "icon": "🎯", "skill": "Selecionar estímulos-alvo", "mode": "attention"}, {"group": "Cognição e atenção", "title": "Flexibilidade cognitiva", "icon": "🔄", "skill": "Mudar regra de classificação", "mode": "flexibility"}, {"group": "Cognição e atenção", "title": "Inibição e autocontrole", "icon": "🛑", "skill": "Responder apenas ao estímulo correto", "mode": "inhibition"}, {"group": "Matemática funcional", "title": "Compras no mercado", "icon": "🛒", "skill": "Somar valores em compras", "mode": "money"}, {"group": "Matemática funcional", "title": "Escolher o menor preço", "icon": "🏷️", "skill": "Comparar preços", "mode": "money"}, {"group": "Matemática funcional", "title": "Calcular troco", "icon": "💵", "skill": "Resolver troco simples", "mode": "money"}, {"group": "Matemática funcional", "title": "Organizar horário", "icon": "🕒", "skill": "Interpretar horários", "mode": "time"}, {"group": "Matemática funcional", "title": "Calendário da semana", "icon": "📅", "skill": "Relacionar dias e compromissos", "mode": "calendar"}, {"group": "Matemática funcional", "title": "Medidas na cozinha", "icon": "🥄", "skill": "Usar medidas de capacidade", "mode": "measure"}, {"group": "Matemática funcional", "title": "Dividir materiais", "icon": "✂️", "skill": "Partilhar quantidades", "mode": "div"}, {"group": "Matemática funcional", "title": "Contar objetos da sala", "icon": "🏫", "skill": "Aplicar contagem ao cotidiano", "mode": "number"}, {"group": "Matemática funcional", "title": "Ler tabelas simples", "icon": "📊", "skill": "Interpretar dados", "mode": "data"}, {"group": "Matemática funcional", "title": "Planejar uma rotina", "icon": "🗓️", "skill": "Sequenciar tempo e tarefas", "mode": "calendar"}, {"group": "Comunicação e linguagem", "title": "Nomear objetos", "icon": "🗣️", "skill": "Ampliar vocabulário funcional", "mode": "vocab"}, {"group": "Comunicação e linguagem", "title": "Pedir ajuda", "icon": "🙋", "skill": "Formular pedido funcional", "mode": "communication"}, {"group": "Comunicação e linguagem", "title": "Escolher entre opções", "icon": "☑️", "skill": "Expressar preferência", "mode": "communication"}, {"group": "Comunicação e linguagem", "title": "Completar frases funcionais", "icon": "💬", "skill": "Produzir frases contextualizadas", "mode": "sentence"}, {"group": "Comunicação e linguagem", "title": "Sentimentos e emoções", "icon": "🙂", "skill": "Reconhecer vocabulário emocional", "mode": "emotion"}, {"group": "Comunicação e linguagem", "title": "Ações do cotidiano", "icon": "🚶", "skill": "Nomear e compreender ações", "mode": "vocab"}, {"group": "Comunicação e linguagem", "title": "Perguntas Quem/Onde/O quê", "icon": "❓", "skill": "Responder perguntas simples", "mode": "wh"}, {"group": "Comunicação e linguagem", "title": "Sequência de histórias", "icon": "📚", "skill": "Organizar narrativa visual", "mode": "story"}, {"group": "Comunicação e linguagem", "title": "Inferência simples", "icon": "💡", "skill": "Inferir informação implícita", "mode": "inference"}, {"group": "Comunicação e linguagem", "title": "Recontagem de histórias", "icon": "🗯️", "skill": "Recontar começo, meio e fim", "mode": "story"}, {"group": "Trilhas pedagógicas", "title": "Início da alfabetização", "icon": "🌱", "skill": "Reconhecimento de letras e sons", "mode": "track_lit"}, {"group": "Trilhas pedagógicas", "title": "Consciência fonológica", "icon": "👂", "skill": "Rimas, sons e sílabas", "mode": "track_lit"}, {"group": "Trilhas pedagógicas", "title": "Formação de palavras", "icon": "🔡", "skill": "Montagem e leitura de palavras", "mode": "track_lit"}, {"group": "Trilhas pedagógicas", "title": "Leitura inicial", "icon": "📖", "skill": "Palavras e frases simples", "mode": "track_lit"}, {"group": "Trilhas pedagógicas", "title": "Compreensão de texto", "icon": "📘", "skill": "Interpretação e inferência", "mode": "track_lit"}, {"group": "Trilhas pedagógicas", "title": "Números e quantidades", "icon": "🔢", "skill": "Contagem e comparação", "mode": "track_math"}, {"group": "Trilhas pedagógicas", "title": "Operações básicas", "icon": "➕", "skill": "Adição e subtração", "mode": "track_math"}, {"group": "Trilhas pedagógicas", "title": "Multiplicação e divisão", "icon": "✖️", "skill": "Grupos e partilhas", "mode": "track_math"}, {"group": "Trilhas pedagógicas", "title": "Matemática funcional", "icon": "🛒", "skill": "Dinheiro, tempo e medidas", "mode": "track_math"}, {"group": "Trilhas pedagógicas", "title": "Autonomia acadêmica", "icon": "🏆", "skill": "Revisão integrada e progressiva", "mode": "track_mix"}];
-const palavras = [
- ['GATO','🐱'],['PATO','🦆'],['SAPO','🐸'],['RATO','🐭'],['PEIXE','🐟'],['CÃO','🐶'],['VACA','🐄'],['LEÃO','🦁'],
- ['BANANA','🍌'],['MAÇÃ','🍎'],['UVA','🍇'],['OVO','🥚'],['LEITE','🥛'],['PÃO','🍞'],['BOLO','🍰'],['PERA','🍐'],
- ['LIVRO','📚'],['CADERNO','📒'],['LÁPIS','✏️'],['ESCOLA','🏫'],['MOCHILA','🎒'],['TESOURA','✂️'],
- ['CASA','🏠'],['CHAVE','🔑'],['CAMA','🛏️'],['PORTA','🚪'],['JANELA','🪟'],['SOFÁ','🛋️'],
- ['CARRO','🚗'],['NAVIO','🚢'],['ÔNIBUS','🚌'],['TREM','🚆'],['AVIÃO','✈️'],['BICICLETA','🚲'],
- ['SOL','☀️'],['LUA','🌙'],['FLOR','🌸'],['ÁRVORE','🌳'],['CHUVA','🌧️'],['NUVEM','☁️'],
- ['BOCA','👄'],['MÃO','✋'],['PÉ','🦶'],['OLHO','👁️'],['ORELHA','👂'],['NARIZ','👃']
-];
-let atual=categorias[0], idx=0, nivel='Inicial';
-let acertos=Number(localStorage.getItem('atea8_acertos')||0), respondidas=Number(localStorage.getItem('atea8_resp')||0);
-const cards=document.getElementById('cards'), busca=document.getElementById('busca');
+const palavras=[['GATO','🐱'],['PATO','🦆'],['SAPO','🐸'],['RATO','🐭'],['PEIXE','🐟'],['BANANA','🍌'],['MAÇÃ','🍎'],['UVA','🍇'],['LIVRO','📚'],['CADERNO','📒'],['LÁPIS','✏️'],['CASA','🏠'],['CHAVE','🔑'],['CARRO','🚗'],['NAVIO','🚢'],['SOL','☀️'],['LUA','🌙'],['FLOR','🌸'],['BOCA','👄'],['MÃO','✋']];
+let atual=categorias[0],idx=0,nivel='Inicial',streak=0;
+let profile=JSON.parse(localStorage.getItem('atea_profile')||'{"name":"Aluno","goal":"Aprendizagem geral"}');
+let settings=JSON.parse(localStorage.getItem('atea_settings')||'{"calmMode":true,"autoVoice":false,"largeText":false,"reduceMotion":true,"twoChoices":false,"adaptive":true}');
+let progress=JSON.parse(localStorage.getItem('atea_progress')||'{"acertos":0,"respondidas":0,"byCat":{}}');
+const cards=document.getElementById('cards'),busca=document.getElementById('busca');
 
 function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
-function pick(arr,seed){return arr[seed%arr.length]}
-function shuffle(arr,seed){let a=[...arr];for(let i=a.length-1;i>0;i--){seed=(seed*1664525+1013904223)>>>0;let j=seed%(i+1);[a[i],a[j]]=[a[j],a[i]]}return a}
-function word(seed){let [w,e]=pick(palavras,seed);return {w,e}}
-function opts(correct,alts,seed){return shuffle([correct,...alts.filter(x=>x!==correct)].slice(0,3),seed)}
+function pick(a,s){return a[s%a.length]} function shuffle(a,s){a=[...a];for(let i=a.length-1;i>0;i--){s=(s*1664525+1013904223)>>>0;let j=s%(i+1);[a[i],a[j]]=[a[j],a[i]]}return a}
+function word(s){let [w,e]=pick(palavras,s);return{w,e}}
+function chooseOpts(correct,alts,s){let n=settings.twoChoices?2:3;return shuffle([correct,...alts.filter(x=>x!==correct)],s).slice(0,n)}
+
 function activity(cat,i,lev){
- const f=lev==='Inicial'?0:lev==='Intermediário'?1:2, s=hash(cat.title+'-'+i+'-'+lev), a=word(s),b=word(s+13),c=word(s+29);
+ const f=lev==='Inicial'?0:lev==='Intermediário'?1:2,s=hash(cat.title+'-'+i+'-'+lev),a=word(s),b=word(s+13),c=word(s+29),n1=1+(s%((f+1)*10+10)),n2=1+((s>>5)%((f+1)*8+8));
  let q='',ans='',op=[],emoji=cat.icon;
- const n1=1+(s%((f+1)*10+10)),n2=1+((s>>5)%((f+1)*8+8));
- switch(cat.mode){
-  case 'phonology': q=`Qual palavra combina melhor com o som de ${a.w}?`;ans=b.w;op=opts(ans,[a.w,c.w],s);emoji='🎵';break;
-  case 'syllable': ans=String(Math.max(1,Math.round(a.w.length/2.5)));q=`Quantas partes faladas (sílabas) você percebe em ${a.w}?`;op=opts(ans,[String(+ans+1),String(Math.max(1,+ans-1))],s);emoji=a.e;break;
-  case 'pairs': q=`Qual opção apresenta a escrita correta?`;ans=a.w;op=opts(ans,[a.w.replace(/P/g,'B'),a.w.replace(/S/g,'Z')],s);emoji='🔤';break;
-  case 'word': q=`Qual palavra corresponde à imagem?`;ans=a.w;op=opts(ans,[b.w,c.w],s);emoji=a.e;break;
-  case 'reading': q=`Leia e selecione a palavra correspondente à imagem.`;ans=a.w;op=opts(ans,[b.w,c.w],s);emoji=a.e;break;
-  case 'dictation': q=`Ouça e escolha a escrita correta da palavra ${a.w}.`;ans=a.w;op=opts(ans,[b.w,c.w],s);emoji='🎧';break;
-  case 'number': q=`Qual número vem depois de ${n1}?`;ans=String(n1+1);op=opts(ans,[String(n1),String(n1+2)],s);emoji='🔢';break;
-  case 'sequence': q=`Complete: ${n1}, ${n1+2}, ${n1+4}, __`;ans=String(n1+6);op=opts(ans,[String(n1+5),String(n1+8)],s);emoji='➡️';break;
-  case 'compare': q=`Qual é o maior número?`;ans=String(Math.max(n1,n2));op=opts(ans,[String(Math.min(n1,n2)),String(Math.max(n1,n2)+1)],s);emoji='⚖️';break;
-  case 'place': {let num=10+((s%89));q=`No número ${num}, quantas dezenas há?`;ans=String(Math.floor(num/10));op=opts(ans,[String(num%10),String(Math.floor(num/10)+1)],s);emoji='🔟';break}
-  case 'add': q=`Quanto é ${n1} + ${n2}?`;ans=String(n1+n2);op=opts(ans,[String(n1+n2+1),String(Math.max(0,n1+n2-1))],s);emoji='➕';break;
-  case 'sub': {let x=Math.max(n1,n2),y=Math.min(n1,n2);q=`Quanto é ${x} − ${y}?`;ans=String(x-y);op=opts(ans,[String(x-y+1),String(Math.max(0,x-y-1))],s);emoji='➖';break}
-  case 'mixed': q=`Resolva: ${n1} + ${n2}`;ans=String(n1+n2);op=opts(ans,[String(n1+n2+2),String(Math.max(0,n1+n2-2))],s);emoji='🧠';break;
-  case 'mult': {let x=2+(s%8),y=2+((s>>3)%8);q=`Há ${x} grupos com ${y} objetos em cada. Quantos objetos há?`;ans=String(x*y);op=opts(ans,[String(x*y+x),String(x*y-y)],s);emoji='✖️';break}
-  case 'div': {let y=2+(s%8),r=2+((s>>3)%8),x=y*r;q=`Divida ${x} objetos igualmente entre ${y} pessoas. Quantos para cada uma?`;ans=String(r);op=opts(ans,[String(r+1),String(Math.max(1,r-1))],s);emoji='➗';break}
-  case 'problem': q=`Ana tinha ${n1} figurinhas e ganhou ${n2}. Quantas tem agora?`;ans=String(n1+n2);op=opts(ans,[String(n1+n2+1),String(Math.max(0,n1+n2-1))],s);emoji='🧩';break;
-  case 'geometry': ans='Triângulo';q='Qual forma tem 3 lados?';op=shuffle(['Triângulo','Quadrado','Círculo'],s);emoji='📐';break;
-  case 'pattern': ans='8';q='Complete o padrão: 2, 4, 6, __';op=shuffle(['8','7','10'],s);emoji='🪞';break;
-  case 'spatial': ans='Acima';q='Se um objeto está sobre a mesa, ele está...';op=shuffle(['Acima','Abaixo','Dentro'],s);emoji='🧭';break;
-  case 'attention': ans='⭐';q='Encontre o símbolo-alvo: ⭐';op=shuffle(['⭐','🔺','🔵'],s);emoji='🎯';break;
-  case 'memory': ans=a.w;q=`Qual palavra combina com ${a.e}?`;op=opts(ans,[b.w,c.w],s);emoji='🃏';break;
-  case 'sequence_logic': ans='Depois';q='Na rotina: acordar → escovar os dentes → tomar café. O café acontece...';op=shuffle(['Depois','Antes','Nunca'],s);emoji='🪜';break;
-  case 'classification': ans='Animal';q=`${a.e} pertence a qual grupo?`;op=shuffle(['Animal','Número','Cor'],s);emoji='🗂️';break;
-  case 'flexibility': ans='Mudar a regra';q='Se agora devemos separar por tamanho em vez de cor, o que fazemos?';op=shuffle(['Mudar a regra','Continuar igual','Parar tudo'],s);emoji='🔄';break;
-  case 'inhibition': ans='Esperar';q='Quando a instrução é "só responda quando aparecer verde", o que fazer antes do verde?';op=shuffle(['Esperar','Responder rápido','Escolher qualquer opção'],s);emoji='🛑';break;
-  case 'money': {let x=1+(s%20),y=1+((s>>4)%10);q=`Uma compra custa R$ ${x} e outra R$ ${y}. Total?`;ans=`R$ ${x+y}`;op=opts(ans,[`R$ ${x+y+1}`,`R$ ${Math.max(0,x+y-1)}`],s);emoji='💵';break}
-  case 'time': {let h=1+(s%10);q=`Se agora são ${h} horas e passa 1 hora, que horas serão?`;ans=`${h+1} horas`;op=opts(ans,[`${h} horas`,`${h+2} horas`],s);emoji='🕒';break}
-  case 'calendar': ans='Depois';q='Se hoje é segunda-feira, terça-feira vem...';op=shuffle(['Depois','Antes','No mês passado'],s);emoji='📅';break;
-  case 'measure': ans='Litro';q='Qual unidade usamos com frequência para medir líquidos?';op=shuffle(['Litro','Metro','Hora'],s);emoji='🥄';break;
-  case 'data': ans='Azul';q='Tabela: Azul=8, Verde=5, Amarelo=3. Qual tem maior quantidade?';op=shuffle(['Azul','Verde','Amarelo'],s);emoji='📊';break;
-  case 'vocab': ans=a.w;q=`Qual palavra nomeia esta imagem?`;op=opts(ans,[b.w,c.w],s);emoji=a.e;break;
-  case 'communication': ans='Por favor, me ajude.';q='Qual frase é adequada para pedir ajuda?';op=shuffle(['Por favor, me ajude.','Não quero falar.','Vou embora.'],s);emoji='🙋';break;
-  case 'sentence': ans='Eu quero água, por favor.';q='Qual frase comunica um pedido de forma clara?';op=shuffle([ans,'Água talvez ontem.','Eu correr cadeira.'],s);emoji='💬';break;
-  case 'emotion': ans='Feliz';q='Uma pessoa sorrindo após receber uma boa notícia pode estar...';op=shuffle(['Feliz','Com sono','Com frio'],s);emoji='🙂';break;
-  case 'wh': ans='Na escola';q='Onde o aluno estuda?';op=shuffle(['Na escola','Com um lápis','Porque sim'],s);emoji='❓';break;
-  case 'story': ans='Começo, meio e fim';q='Uma história organizada geralmente apresenta...';op=shuffle([ans,'Só o final','Palavras sem ordem'],s);emoji='📚';break;
-  case 'inference': ans='Estava chovendo';q='João entrou em casa com o guarda-chuva molhado. O que provavelmente aconteceu?';op=shuffle([ans,'Estava muito calor','Ele estava dormindo'],s);emoji='💡';break;
-  case 'track_lit': ans=a.w;q=`Trilha de alfabetização: identifique a palavra correta para ${a.e}.`;op=opts(ans,[b.w,c.w],s);emoji=a.e;break;
-  case 'track_math': q=`Trilha de matemática: quanto é ${n1} + ${n2}?`;ans=String(n1+n2);op=opts(ans,[String(n1+n2+1),String(Math.max(0,n1+n2-1))],s);emoji='🔢';break;
-  case 'track_mix': {if(i%2===0){ans=a.w;q=`Identifique a palavra: ${a.e}`;op=opts(ans,[b.w,c.w],s);emoji=a.e}else{q=`Resolva ${n1} + ${n2}`;ans=String(n1+n2);op=opts(ans,[String(n1+n2+1),String(Math.max(0,n1+n2-1))],s);emoji='🏆'}break}
+ if(cat.group==='Matemática'||cat.group==='Matemática funcional'||cat.mode.includes('math')||['number','sequence','compare','place','add','sub','mixed','mult','div','problem','geometry','pattern','spatial','money','time','calendar','measure','data'].includes(cat.mode)){
+   if(['mult'].includes(cat.mode)){let x=2+(s%8),y=2+((s>>3)%8);q=`Quanto é ${x} × ${y}?`;ans=String(x*y);op=chooseOpts(ans,[String(x*y+x),String(Math.max(0,x*y-y))],s);emoji='✖️'}
+   else if(['div'].includes(cat.mode)){let y=2+(s%8),r=2+((s>>3)%8),x=y*r;q=`Quanto é ${x} ÷ ${y}?`;ans=String(r);op=chooseOpts(ans,[String(r+1),String(Math.max(1,r-1))],s);emoji='➗'}
+   else if(['sub'].includes(cat.mode)){let x=Math.max(n1,n2),y=Math.min(n1,n2);q=`Quanto é ${x} − ${y}?`;ans=String(x-y);op=chooseOpts(ans,[String(x-y+1),String(Math.max(0,x-y-1))],s);emoji='➖'}
+   else if(['money'].includes(cat.mode)){let x=1+s%20,y=1+(s>>4)%10;q=`Uma compra custa R$ ${x} e outra R$ ${y}. Total?`;ans=`R$ ${x+y}`;op=chooseOpts(ans,[`R$ ${x+y+1}`,`R$ ${Math.max(0,x+y-1)}`],s);emoji='💵'}
+   else if(['time','calendar'].includes(cat.mode)){let h=1+s%10;q=`Se agora são ${h} horas e passa 1 hora, que horas serão?`;ans=`${h+1} horas`;op=chooseOpts(ans,[`${h} horas`,`${h+2} horas`],s);emoji='🕒'}
+   else{q=`Resolva: ${n1} + ${n2}`;ans=String(n1+n2);op=chooseOpts(ans,[String(n1+n2+1),String(Math.max(0,n1+n2-1))],s);emoji='🔢'}
+ } else if(['communication','sentence','emotion','wh','story','inference'].includes(cat.mode)){
+   if(cat.mode==='communication'){q='Qual frase é adequada para pedir ajuda?';ans='Por favor, me ajude.';op=chooseOpts(ans,['Não quero falar.','Vou embora.'],s);emoji='🙋'}
+   else if(cat.mode==='emotion'){q='Uma pessoa sorrindo após receber uma boa notícia pode estar...';ans='Feliz';op=chooseOpts(ans,['Com sono','Com frio'],s);emoji='🙂'}
+   else if(cat.mode==='wh'){q='Onde o aluno estuda?';ans='Na escola';op=chooseOpts(ans,['Com um lápis','Porque sim'],s);emoji='❓'}
+   else if(cat.mode==='inference'){q='João entrou em casa com o guarda-chuva molhado. O que provavelmente aconteceu?';ans='Estava chovendo';op=chooseOpts(ans,['Estava muito calor','Ele estava dormindo'],s);emoji='💡'}
+   else{q='Qual frase está organizada corretamente?';ans='Eu quero água, por favor.';op=chooseOpts(ans,['Água talvez ontem.','Eu correr cadeira.'],s);emoji='💬'}
+ } else {
+   q=`Qual palavra corresponde à imagem?`;ans=a.w;op=chooseOpts(ans,[b.w,c.w],s);emoji=a.e;
  }
- return {q,ans,op,emoji};
+ return{q,ans,op,emoji};
 }
 
 function renderCards(){
- const termo=busca.value.toLowerCase(), grupo=document.querySelector('.filter.active').dataset.group;
- cards.innerHTML='';
+ const termo=busca.value.toLowerCase(),grupo=document.querySelector('.filter.active').dataset.group;cards.innerHTML='';
  categorias.filter(c=>(grupo==='Todas'||c.group===grupo)&&(c.title+' '+c.skill+' '+c.group).toLowerCase().includes(termo)).forEach(c=>{
-   const el=document.createElement('article');
-   el.innerHTML=`<div class="card-icon">${c.icon}</div><div class="card-title">${c.title}</div><div class="card-skill">${c.skill}</div><div class="card-footer"><span class="tag">${c.group}</span><span class="count">100 atividades</span></div>`;
-   el.onclick=()=>{atual=c;idx=0;renderActivity();document.getElementById('pratica').scrollIntoView({behavior:'smooth'})};
-   cards.appendChild(el);
+  const p=progress.byCat[c.title]||{r:0,a:0};
+  const el=document.createElement('article');el.innerHTML=`<div class="card-icon">${c.icon}</div><div class="card-title">${c.title}</div><div class="card-skill">${c.skill}</div><div class="card-footer"><span class="tag">${c.group}</span><span class="count">${p.r?Math.round(p.a/p.r*100):0}% • 100 atividades</span></div>`;
+  el.onclick=()=>{atual=c;idx=0;applyAdaptive();renderActivity();document.getElementById('pratica').scrollIntoView({behavior:'smooth'})};cards.appendChild(el)
  });
 }
-function renderActivity(){
- const a=activity(atual,idx,nivel);
- document.getElementById('grupoAtual').textContent=atual.group;document.getElementById('categoriaAtual').textContent=atual.title;document.getElementById('skillAtual').textContent=atual.skill;
- document.getElementById('contador').textContent=`Atividade ${idx+1} de 100`;document.getElementById('metaNivel').textContent=`Nível ${nivel}`;document.getElementById('bar').style.width=`${idx+1}%`;
- document.getElementById('emoji').textContent=a.emoji;document.getElementById('pergunta').textContent=a.q;
- const ops=document.getElementById('opcoes');ops.innerHTML='';const fb=document.getElementById('feedback');fb.textContent='';fb.className='feedback';
- a.op.forEach(o=>{const b=document.createElement('button');b.className='option';b.textContent=o;b.onclick=()=>answer(b,o,a.ans);ops.appendChild(b)});
+function applyAdaptive(){
+ if(!settings.adaptive)return;
+ const p=progress.byCat[atual.title]; if(!p||p.r<5)return;
+ const pct=p.a/p.r; nivel=pct>=.85?'Avançado':pct>=.6?'Intermediário':'Inicial';
+ document.querySelectorAll('.level').forEach(b=>b.classList.toggle('active',b.dataset.level===nivel));
 }
-function answer(btn,r,c){document.querySelectorAll('.option').forEach(x=>x.disabled=true);respondidas++;if(r===c){btn.classList.add('correct');document.getElementById('feedback').textContent='Muito bem! Resposta correta.';document.getElementById('feedback').classList.add('ok');acertos++}else{btn.classList.add('wrong');[...document.querySelectorAll('.option')].find(x=>x.textContent===c)?.classList.add('correct');document.getElementById('feedback').textContent=`A resposta correta é: ${c}`;document.getElementById('feedback').classList.add('no')}localStorage.setItem('atea8_acertos',acertos);localStorage.setItem('atea8_resp',respondidas);dash()}
-function dash(){document.getElementById('acertos').textContent=acertos;document.getElementById('respondidas').textContent=respondidas;document.getElementById('percentual').textContent=respondidas?Math.round(acertos/respondidas*100)+'%':'0%'}
+function renderActivity(){
+ const a=activity(atual,idx,nivel);document.getElementById('grupoAtual').textContent=atual.group;document.getElementById('categoriaAtual').textContent=atual.title;document.getElementById('skillAtual').textContent=atual.skill;
+ document.getElementById('contador').textContent=`Atividade ${idx+1} de 100`;document.getElementById('bar').style.width=`${idx+1}%`;document.getElementById('adaptiveLabel').textContent=settings.adaptive?`Adaptativo ativo • ${nivel}`:`Nível ${nivel}`;
+ document.getElementById('emoji').textContent=a.emoji;document.getElementById('pergunta').textContent=a.q;
+ const ops=document.getElementById('opcoes');ops.innerHTML='';ops.className='options'+(settings.twoChoices?' two':'');const fb=document.getElementById('feedback');fb.textContent='';fb.className='feedback';
+ a.op.forEach(o=>{const b=document.createElement('button');b.className='option';b.textContent=o;b.onclick=()=>answer(b,o,a.ans);ops.appendChild(b)});
+ if(settings.autoVoice)say(a.q);
+}
+function answer(btn,r,c){
+ document.querySelectorAll('.option').forEach(x=>x.disabled=true);
+ progress.respondidas++;progress.byCat[atual.title]=progress.byCat[atual.title]||{r:0,a:0};progress.byCat[atual.title].r++;
+ if(r===c){btn.classList.add('correct');document.getElementById('feedback').textContent='Muito bem! Resposta correta.';document.getElementById('feedback').classList.add('ok');progress.acertos++;progress.byCat[atual.title].a++;streak++}
+ else{btn.classList.add('wrong');[...document.querySelectorAll('.option')].find(x=>x.textContent===c)?.classList.add('correct');document.getElementById('feedback').textContent=`A resposta correta é: ${c}`;document.getElementById('feedback').classList.add('no');streak=0}
+ localStorage.setItem('atea_progress',JSON.stringify(progress));dash();renderTable();recommend();if(settings.adaptive&&progress.byCat[atual.title].r%5===0)applyAdaptive();
+}
+function say(t){if('speechSynthesis'in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='pt-BR';speechSynthesis.speak(u)}}
+function dash(){document.getElementById('acertos').textContent=progress.acertos;document.getElementById('respondidas').textContent=progress.respondidas;document.getElementById('percentual').textContent=progress.respondidas?Math.round(progress.acertos/progress.respondidas*100)+'%':'0%';document.getElementById('streak').textContent=streak}
+function renderTable(){
+ const tb=document.querySelector('#progressTable tbody');tb.innerHTML='';
+ Object.entries(progress.byCat).sort((a,b)=>b[1].r-a[1].r).slice(0,12).forEach(([k,v])=>{tb.innerHTML+=`<tr><td>${k}</td><td>${v.r}</td><td>${v.a}</td><td>${Math.round(v.a/v.r*100)}%</td></tr>`})
+}
+function recommend(){
+ const entries=Object.entries(progress.byCat).filter(([k,v])=>v.r>=3);
+ if(!entries.length){document.getElementById('recommendation').textContent='Faça algumas atividades para receber recomendações.';return}
+ entries.sort((a,b)=>(a[1].a/a[1].r)-(b[1].a/b[1].r));const [k,v]=entries[0],pct=Math.round(v.a/v.r*100);
+ document.getElementById('recommendation').textContent=`Sugestão: retomar “${k}” (${pct}% de acertos) no nível ${pct<60?'Inicial':pct<85?'Intermediário':'Avançado'}.`;
+}
+function applySettings(){
+ document.body.classList.toggle('calm',settings.calmMode);document.body.classList.toggle('large-text',settings.largeText);document.body.classList.toggle('reduce-motion',settings.reduceMotion);
+ for(const id of ['calmMode','autoVoice','largeText','reduceMotion','twoChoices','adaptive'])document.getElementById(id).checked=!!settings[id];
+ document.getElementById('studentName').textContent=profile.name||'Aluno';document.getElementById('studentGoal').textContent='Meta: '+(profile.goal||'Aprendizagem geral');
+}
+function saveSettings(){for(const id of ['calmMode','autoVoice','largeText','reduceMotion','twoChoices','adaptive'])settings[id]=document.getElementById(id).checked;localStorage.setItem('atea_settings',JSON.stringify(settings));applySettings();renderActivity()}
 
-busca.oninput=renderCards;
-document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderCards()});
+busca.oninput=renderCards;document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderCards()});
 document.querySelectorAll('.level').forEach(b=>b.onclick=()=>{document.querySelectorAll('.level').forEach(x=>x.classList.remove('active'));b.classList.add('active');nivel=b.dataset.level;idx=0;renderActivity()});
-document.getElementById('proxima').onclick=()=>{idx=(idx+1)%100;renderActivity()};
-document.getElementById('anterior').onclick=()=>{idx=(idx+99)%100;renderActivity()};
-document.getElementById('surpresa').onclick=()=>{atual=categorias[Date.now()%categorias.length];idx=Date.now()%100;renderActivity();document.getElementById('pratica').scrollIntoView({behavior:'smooth'})};
-document.getElementById('ouvir').onclick=()=>{if('speechSynthesis'in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(document.getElementById('pergunta').textContent);u.lang='pt-BR';speechSynthesis.speak(u)}};
-document.getElementById('zerar').onclick=()=>{localStorage.removeItem('atea8_acertos');localStorage.removeItem('atea8_resp');acertos=0;respondidas=0;dash()};
-renderCards();renderActivity();dash();
+for(const id of ['calmMode','autoVoice','largeText','reduceMotion','twoChoices','adaptive'])document.getElementById(id).onchange=saveSettings;
+document.getElementById('proxima').onclick=()=>{idx=(idx+1)%100;renderActivity()};document.getElementById('anterior').onclick=()=>{idx=(idx+99)%100;renderActivity()};document.getElementById('ouvir').onclick=()=>say(document.getElementById('pergunta').textContent);
+document.getElementById('printReport').onclick=()=>window.print();document.getElementById('zerar').onclick=()=>{if(confirm('Zerar todo o progresso salvo neste dispositivo?')){progress={acertos:0,respondidas:0,byCat:{}};streak=0;localStorage.setItem('atea_progress',JSON.stringify(progress));dash();renderTable();recommend();renderCards()}};
+const modal=document.getElementById('profileModal');document.getElementById('editProfile').onclick=()=>{document.getElementById('profileName').value=profile.name||'';document.getElementById('profileGoal').value=profile.goal||'Aprendizagem geral';modal.hidden=false};document.getElementById('closeProfile').onclick=()=>modal.hidden=true;document.getElementById('saveProfile').onclick=()=>{profile.name=document.getElementById('profileName').value.trim()||'Aluno';profile.goal=document.getElementById('profileGoal').value;localStorage.setItem('atea_profile',JSON.stringify(profile));modal.hidden=true;applySettings()};
+
+let deferredPrompt=null;const installBtn=document.getElementById('installBtn');window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;installBtn.hidden=false});installBtn.onclick=async()=>{if(!deferredPrompt)return;deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;installBtn.hidden=true};
+if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+
+applySettings();renderCards();applyAdaptive();renderActivity();dash();renderTable();recommend();
