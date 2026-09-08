@@ -25,52 +25,52 @@
     <article><h3>Trilha personalizada / Favoritos</h3><div id="favorites"></div></article>
     <article><h3>Diagnóstico inicial</h3><div id="diagnosticSummary" class="diagnosticSummary">Ainda não realizado.</div></article>
   </div>
-  <div class="pedagogicalReportEditor">
-    <div class="pedagogicalHead">
+  <div class="pedagogicalReportEditor refinedReport">
+    <div class="pedagogicalHead reportTopbar">
       <div>
         <span class="reportKicker">PLANEJAMENTO E REGISTRO PEDAGÓGICO</span>
         <h3>Relatório pedagógico ampliado</h3>
-        <p>Campos editáveis por aluno. As informações ficam salvas no dispositivo.</p>
+        <p>Organize o acompanhamento do aluno em um único espaço, com dados salvos individualmente no dispositivo.</p>
       </div>
-      <button id="savePedagogicalReport" class="teacherSaveBtn">💾 Salvar relatório</button>
+      <div class="reportTopActions">
+        <span id="saveStatus" class="saveStatus">Alterações salvas automaticamente</span>
+        <button id="savePedagogicalReport" class="teacherSaveBtn">💾 Salvar agora</button>
+      </div>
     </div>
 
-    <div class="pedagogicalGrid">
-      <label>
-        <span>Período de acompanhamento</span>
-        <input id="followupPeriod" placeholder="Ex.: 01/09/2026 a 30/09/2026">
-      </label>
-      <label>
-        <span>Professor(a) responsável</span>
-        <input id="teacherName" placeholder="Nome do(a) professor(a)">
-      </label>
-      <label class="wideField">
-        <span>Metas individuais</span>
-        <textarea id="individualGoals" rows="4" placeholder="Ex.: ampliar leitura de palavras simples; consolidar adição até 20; aumentar autonomia na rotina escolar."></textarea>
-      </label>
-      <label class="wideField">
-        <span>Habilidades prioritárias</span>
-        <textarea id="prioritySkills" rows="4" placeholder="Registre as habilidades prioritárias para o próximo período."></textarea>
-      </label>
-      <label class="wideField">
-        <span>Observações do professor</span>
-        <textarea id="teacherNotes" rows="6" placeholder="Registre participação, estratégias que funcionaram, comportamentos observados, formas de apoio, generalização e outros aspectos relevantes."></textarea>
-      </label>
-      <label class="wideField">
-        <span>Sugestões de intervenção pedagógica</span>
-        <textarea id="interventionNotes" rows="6" placeholder="O aplicativo sugere intervenções automaticamente, mas você pode complementar ou substituir este texto."></textarea>
-      </label>
+    <div class="reportSection">
+      <div class="reportSectionTitle"><span class="sectionNumber">1</span><div><h4>Identificação do acompanhamento</h4><p>Informe o período e o responsável pelo registro.</p></div></div>
+      <div class="pedagogicalGrid twoColumns">
+        <label class="fieldCard"><span>Período de acompanhamento</span><input id="followupPeriod" placeholder="Ex.: 01/09/2026 a 30/09/2026"></label>
+        <label class="fieldCard"><span>Professor(a) responsável</span><input id="teacherName" placeholder="Nome do(a) professor(a)"></label>
+      </div>
     </div>
 
-    <div class="autoConclusionBox">
+    <div class="reportSection">
+      <div class="reportSectionTitle"><span class="sectionNumber">2</span><div><h4>Planejamento individual</h4><p>Defina objetivos e prioridades para o próximo período.</p></div></div>
+      <div class="pedagogicalGrid twoColumns">
+        <label class="fieldCard"><span>Metas individuais</span><textarea id="individualGoals" rows="7" placeholder="Ex.: ampliar leitura de palavras simples; consolidar adição até 20; aumentar autonomia na rotina escolar."></textarea></label>
+        <label class="fieldCard"><span>Habilidades prioritárias</span><textarea id="prioritySkills" rows="7" placeholder="Registre as habilidades prioritárias para o próximo período."></textarea></label>
+      </div>
+    </div>
+
+    <div class="reportSection">
+      <div class="reportSectionTitle"><span class="sectionNumber">3</span><div><h4>Registro do professor</h4><p>Descreva estratégias, avanços, apoios necessários e aspectos relevantes do acompanhamento.</p></div></div>
+      <label class="fieldCard fullWidth"><span>Observações do professor</span><textarea id="teacherNotes" rows="9" placeholder="Registre participação, estratégias que funcionaram, comportamentos observados, formas de apoio, generalização das aprendizagens e outros aspectos relevantes."></textarea></label>
+    </div>
+
+    <div class="reportSection">
+      <div class="reportSectionTitle"><span class="sectionNumber">4</span><div><h4>Intervenções pedagógicas</h4><p>Use as sugestões automáticas como ponto de partida e personalize conforme o contexto do aluno.</p></div></div>
+      <label class="fieldCard fullWidth"><span>Sugestões de intervenção pedagógica</span><textarea id="interventionNotes" rows="8" placeholder="O aplicativo sugere intervenções automaticamente, mas você pode complementar ou substituir este texto."></textarea></label>
+    </div>
+
+    <div class="autoConclusionBox refinedConclusion">
       <div class="pedagogicalHead compact">
-        <div><span class="reportKicker">CONCLUSÃO AUTOMÁTICA</span><h3>Texto para registro pedagógico</h3></div>
-        <div class="teacherActions">
-          <button id="generateConclusion">✨ Gerar conclusão</button>
-          <button id="copyConclusion">📋 Copiar texto</button>
-        </div>
+        <div><span class="reportKicker">CONCLUSÃO AUTOMÁTICA</span><h3>Texto para registro pedagógico</h3><p>Gere uma síntese a partir do diagnóstico, desempenho, metas, habilidades e observações registradas.</p></div>
+        <div class="teacherActions"><button id="generateConclusion">✨ Gerar conclusão</button><button id="copyConclusion">📋 Copiar texto</button></div>
       </div>
-      <textarea id="autoConclusion" rows="10" placeholder="A conclusão será gerada a partir do diagnóstico, desempenho, habilidades, dificuldades, metas e observações registradas."></textarea>
+      <textarea id="autoConclusion" rows="14" placeholder="A conclusão será gerada a partir do diagnóstico, desempenho, habilidades, dificuldades, metas e observações registradas."></textarea>
+      <div class="conclusionFooter"><span id="conclusionCount">0 caracteres</span><span>Você pode editar o texto antes de copiar ou exportar.</span></div>
     </div>
   </div>
 
@@ -85,4 +85,87 @@
 </main>
 <div id="profilesModal" class="modal" hidden><div class="modalCard"><button class="close" id="closeProfiles">×</button><h2>Gerenciar perfis</h2><div id="profilesList"></div><hr><input id="newName" placeholder="Nome ou apelido"><select id="newGoal"><option>Alfabetização</option><option>Matemática</option><option>Comunicação</option><option>Cognição e atenção</option><option>Autonomia</option><option>Aprendizagem geral</option></select><button id="addProfile">Adicionar perfil</button></div></div>
 <div id="diagModal" class="modal" hidden><div class="modalCard"><button class="close" id="closeDiag">×</button><h2>Avaliação diagnóstica</h2><div id="diagArea">12 questões curtas de alfabetização, matemática, atenção, linguagem e autonomia.</div><button id="diagNext">Começar</button></div></div>
-<footer>Alfabetizando TEA • Prof. Dr. Marcelo Marques de Araújo – UFPA</footer><script src="script.js"></script></body></html>
+<footer>Alfabetizando TEA • Prof. Dr. Marcelo Marques de Araújo – UFPA</footer><script src="script.js"></script>
+<script>
+(function(){
+  const ids=['followupPeriod','teacherName','individualGoals','prioritySkills','teacherNotes','interventionNotes','autoConclusion'];
+  const el=id=>document.getElementById(id);
+  function currentProfile(){
+    try { return typeof prof==='function' ? prof() : null; } catch(e){ return null; }
+  }
+  function persist(){
+    const p=currentProfile(); if(!p) return;
+    p.pedagogical=p.pedagogical||{};
+    ids.forEach(id=>{ if(el(id)) p.pedagogical[id]=el(id).value.trim(); });
+    try { if(typeof save==='function') save(); } catch(e){}
+    if(el('saveStatus')) el('saveStatus').textContent='Salvo às '+new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+    countConclusion();
+  }
+  function load(){
+    const p=currentProfile(); if(!p) return;
+    p.pedagogical=p.pedagogical||{};
+    ids.forEach(id=>{ if(el(id)) el(id).value=p.pedagogical[id]||''; });
+    if(el('interventionNotes') && !el('interventionNotes').value.trim()){
+      try{
+        const hard=typeof hardestList==='function'?hardestList():[];
+        if(hard.length && typeof interventionByGroup!=='undefined'){
+          el('interventionNotes').value=hard.slice(0,3).map(x=>x.k+': '+(interventionByGroup[x.group]||'retomar a habilidade com apoio graduado.')).join('\n');
+        }
+      }catch(e){}
+    }
+    countConclusion();
+  }
+  function countConclusion(){
+    if(el('conclusionCount')) el('conclusionCount').textContent=((el('autoConclusion')?.value)||'').length+' caracteres';
+  }
+  function strongest(){
+    try{
+      const stats=(typeof categoryStatsFromHistory==='function'&&categoryStatsFromHistory()) || currentProfile()?.progress?.byCat || {};
+      return Object.entries(stats).filter(([k,v])=>v.d>=3).map(([k,v])=>({k,pct:Math.round(v.h/v.d*100)})).sort((a,b)=>b.pct-a.pct).slice(0,4);
+    }catch(e){return []}
+  }
+  function generate(){
+    const p=currentProfile(); if(!p) return;
+    let history=[]; try{history=typeof filteredHistory==='function'?filteredHistory():(p.history||[])}catch(e){history=p.history||[]}
+    const answered=history.length||p.progress?.done||0, hits=history.length?history.filter(x=>x.correct).length:(p.progress?.hits||0), acc=answered?Math.round(hits/answered*100):0;
+    let hard=[]; try{hard=typeof hardestList==='function'?hardestList():[]}catch(e){}
+    const strong=strongest(), r=p.pedagogical||{};
+    const diag=p.diagnostic?`Na avaliação diagnóstica inicial, o aluno apresentou ${p.diagnostic.score}% de aproveitamento. `:'';
+    const perf=answered?`No período analisado, realizou ${answered} atividades, com ${acc}% de aproveitamento geral. `:'Ainda não há quantidade suficiente de atividades respondidas para uma análise quantitativa consolidada. ';
+    const strengths=strong.length?`Entre os desempenhos mais favoráveis, destacam-se ${strong.map(x=>`${x.k} (${x.pct}%)`).join(', ')}. `:'';
+    const needs=hard.length?`As categorias que demandam maior acompanhamento são ${hard.slice(0,3).map(x=>`${x.k} (${x.pct}%)`).join(', ')}. `:'';
+    const goals=r.individualGoals?`As metas individuais definidas para o período são: ${r.individualGoals}. `:'';
+    const priorities=r.prioritySkills?`As habilidades prioritárias são: ${r.prioritySkills}. `:'';
+    const notes=r.teacherNotes?`Nas observações pedagógicas, registra-se: ${r.teacherNotes}. `:'';
+    let intervention=r.interventionNotes||'Manter acompanhamento contínuo, com apoio graduado, revisão das habilidades de maior dificuldade e progressão conforme o desempenho.';
+    const final=`${diag}${perf}${strengths}${needs}${goals}${priorities}${notes}Como encaminhamentos pedagógicos, recomenda-se: ${intervention} O acompanhamento deverá permanecer contínuo, com revisão periódica dos dados, generalização das aprendizagens e ampliação progressiva da autonomia do aluno.`;
+    if(el('autoConclusion')) el('autoConclusion').value=final;
+    persist();
+  }
+  let timer=null;
+  function wire(){
+    load();
+    ids.forEach(id=>{
+      const node=el(id); if(!node) return;
+      node.addEventListener('input',()=>{
+        if(id==='autoConclusion') countConclusion();
+        if(el('saveStatus')) el('saveStatus').textContent='Salvando...';
+        clearTimeout(timer); timer=setTimeout(persist,700);
+      });
+      node.addEventListener('change',persist);
+    });
+    if(el('savePedagogicalReport')) el('savePedagogicalReport').onclick=()=>persist();
+    if(el('generateConclusion')) el('generateConclusion').onclick=generate;
+    if(el('copyConclusion')) el('copyConclusion').onclick=async()=>{
+      const text=el('autoConclusion')?.value||''; if(!text) return;
+      try{await navigator.clipboard.writeText(text)}catch(e){el('autoConclusion').select();document.execCommand('copy')}
+      const t=document.createElement('div');t.className='saveToast';t.textContent='Conclusão copiada.';document.body.appendChild(t);setTimeout(()=>t.remove(),1600);
+    };
+    document.querySelectorAll('.mode button').forEach(b=>b.addEventListener('click',()=>setTimeout(load,50)));
+    if(el('profilesList')) new MutationObserver(()=>setTimeout(load,50)).observe(el('profilesList'),{childList:true,subtree:true});
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',wire); else wire();
+})();
+</script>
+
+</body></html>

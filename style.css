@@ -32,3 +32,21 @@
   .teacherSaveBtn,#generateConclusion,#copyConclusion{display:none!important}
   .autoConclusionBox{border:0!important;background:#fff!important;padding:0!important}
 }
+
+/* Relatório pedagógico refinado */
+.refinedReport{padding:22px;gap:18px;background:linear-gradient(180deg,#fff 0%,#fbfaff 100%);border:1px solid #dcd7ff;box-shadow:0 18px 42px rgba(67,57,160,.08)}
+.reportTopbar{padding-bottom:16px;border-bottom:1px solid #e8e5ff}.reportTopActions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.saveStatus{font-size:.76rem;color:#5f6280;background:#f4f3ff;border:1px solid #e1ddff;border-radius:999px;padding:8px 10px}
+.reportSection{background:#fff;border:1px solid #ebe9f6;border-radius:18px;padding:18px;box-shadow:0 8px 24px rgba(32,36,58,.04)}
+.reportSectionTitle{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px}.reportSectionTitle h4{margin:0;font-size:1.03rem;color:#25293f}.reportSectionTitle p{margin:4px 0 0;color:#747a90;font-size:.82rem;line-height:1.45}
+.sectionNumber{width:30px;height:30px;display:grid;place-items:center;border-radius:10px;background:var(--soft);color:#5145ca;font-weight:900;flex:0 0 auto}
+.pedagogicalGrid.twoColumns{grid-template-columns:1fr 1fr;gap:14px}.fieldCard{display:grid;gap:8px;background:#fbfbfe;border:1px solid #e7e5f1;border-radius:14px;padding:13px}.fieldCard>span{font-size:.78rem;font-weight:850;color:#4f546a}
+.fieldCard input,.fieldCard textarea{width:100%;border:1px solid #d9dbe6;border-radius:12px;padding:12px 13px;background:#fff;color:var(--ink);line-height:1.5;resize:vertical;min-height:46px}.fieldCard textarea{min-height:150px}
+.fieldCard input:focus,.fieldCard textarea:focus,.refinedConclusion textarea:focus{outline:3px solid rgba(101,87,245,.14);border-color:#8f83ff}.fullWidth{width:100%}
+.refinedConclusion{padding:18px;background:linear-gradient(180deg,#f5f3ff 0%,#fbfaff 100%);border:1px solid #dcd7ff}.refinedConclusion textarea{min-height:260px;font-size:.96rem;line-height:1.62;padding:15px}
+.conclusionFooter{display:flex;justify-content:space-between;gap:12px;margin-top:8px;color:#7a8093;font-size:.75rem;flex-wrap:wrap}
+.teacherSaveBtn,.refinedConclusion .teacherActions button{border:1px solid #dcd8f2;background:#fff;border-radius:12px;padding:10px 14px;font-weight:800;cursor:pointer;box-shadow:0 4px 12px rgba(32,36,58,.05)}
+.teacherSaveBtn:hover,.refinedConclusion .teacherActions button:hover{border-color:#aaa1ff;background:#f8f7ff}
+@media(max-width:800px){.pedagogicalGrid.twoColumns{grid-template-columns:1fr}.reportTopActions{justify-content:flex-start}}
+@media(max-width:560px){.refinedReport{padding:14px}.reportSection{padding:14px}.fieldCard textarea{min-height:180px}.refinedConclusion textarea{min-height:320px}}
+@media print{.refinedReport{box-shadow:none!important;background:#fff!important;border:0!important;padding:0!important}.reportSection,.refinedConclusion{box-shadow:none!important;background:#fff!important;border:1px solid #ddd!important;break-inside:avoid;margin-bottom:10px}.saveStatus,.teacherSaveBtn,.refinedConclusion .teacherActions{display:none!important}.fieldCard{background:#fff!important;border:1px solid #ddd!important}.fieldCard input,.fieldCard textarea,.refinedConclusion textarea{min-height:unset!important;height:auto!important;border:0!important;background:#fff!important;font-size:10pt!important;line-height:1.45!important}.conclusionFooter{display:none!important}}
