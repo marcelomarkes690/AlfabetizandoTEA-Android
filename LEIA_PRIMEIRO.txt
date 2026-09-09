@@ -1,0 +1,33 @@
+PACOTE FINAL PARA GOOGLE PLAY — ALFABETIZANDO TEA
+
+NOME OFICIAL
+Alfabetizando TEA
+
+DESCRIÇÃO CURTA
+Alfabetização, matemática e cognição com atividades lúdicas e adaptativas.
+
+IMAGENS DA LOJA
+Use prioritariamente as imagens da pasta imagens/loja.
+A pasta imagens/promocionais_extras preserva as demais artes criadas para divulgação, redes, banners e futuras páginas personalizadas.
+
+ORDEM RECOMENDADA DAS CAPTURAS
+1. Home / 22.000 atividades
+2. Alfabetização
+3. Matemática e cognição
+4. Acessibilidade e adaptação
+5. Modo Professor
+6. Identidade inclusiva
+
+A feature graphic deve ser usada como imagem de destaque da loja.
+A tela de abertura é para uso dentro do aplicativo, não como substituta do ícone.
+
+ARQUIVOS DE TEXTO
+- descricao_curta.txt
+- descricao_completa.txt
+- politica_de_privacidade.txt
+- politica_de_privacidade.html
+- textos_alternativos_imagens.txt
+
+IMPORTANTE SOBRE PRIVACIDADE
+Antes de publicar, substitua o campo de e-mail da política por um endereço de contato válido.
+Se o aplicativo passar a usar login, nuvem, analytics, anúncios, SDKs de terceiros ou qualquer coleta remota de dados, a política deverá ser atualizada e a seção Segurança dos dados do Play Console deverá refletir isso.

@@ -1,0 +1,25 @@
+TEXTOS ALTERNATIVOS SUGERIDOS PARA AS IMAGENS DA LOJA
+
+01_feature_graphic.png
+Mascote do Alfabetizando TEA ao lado de celular com categorias de alfabetização, matemática, cognição e comunicação.
+
+02_tela_abertura.png
+Tela lúdica do Alfabetizando TEA com mascote infantil, letras, estrelas e a mensagem Pequenos passos, grandes conquistas.
+
+03_home_22000_atividades.png
+Tela promocional do Alfabetizando TEA destacando 22.000 atividades e categorias de aprendizagem.
+
+04_alfabetizacao_divertida.png
+Mascote e celular exibindo atividade de sons e letras para alfabetização.
+
+05_matematica_cognicao.png
+Tela promocional com atividades de números, raciocínio, atenção e matemática.
+
+06_acessibilidade_adaptacao.png
+Celular com recursos de modo tranquilo, fonte grande, áudio e dificuldade adaptativa.
+
+07_modo_professor.png
+Painel do Modo Professor com desempenho por aluno, mapa de habilidades, metas e relatórios pedagógicos.
+
+08_identidade_inclusiva.png
+Arte do Alfabetizando TEA destacando educação inclusiva e diferentes formas de aprender.

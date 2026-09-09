@@ -1,0 +1,70 @@
+POLÍTICA DE PRIVACIDADE — ALFABETIZANDO TEA
+
+Última atualização: 9 de setembro de 2026
+
+1. IDENTIFICAÇÃO
+Esta Política de Privacidade descreve como o aplicativo Alfabetizando TEA trata informações durante o uso de seus recursos educacionais.
+
+Responsável pelo aplicativo:
+Prof. Dr. Marcelo Marques de Araújo – UFPA
+
+2. FINALIDADE DO APLICATIVO
+O Alfabetizando TEA é um recurso educacional voltado à alfabetização, matemática, cognição, comunicação, autonomia e acompanhamento pedagógico.
+
+3. DADOS TRATADOS NO DISPOSITIVO
+Na versão atual, informações criadas durante o uso do aplicativo podem ser armazenadas localmente no próprio dispositivo do usuário para permitir o funcionamento de recursos como:
+• nome ou apelido do perfil do aluno;
+• meta de aprendizagem selecionada;
+• preferências de acessibilidade;
+• progresso e histórico de atividades;
+• resultados e percentuais de desempenho;
+• atividades favoritas;
+• dados do diagnóstico inicial;
+• metas individuais;
+• habilidades prioritárias;
+• observações do professor;
+• sugestões de intervenção;
+• informações utilizadas na elaboração do relatório pedagógico.
+
+Essas informações são utilizadas para personalizar a experiência e manter o acompanhamento pedagógico no dispositivo.
+
+4. COLETA E COMPARTILHAMENTO
+Na configuração atual do aplicativo, o desenvolvedor não utiliza o app para vender dados pessoais, realizar publicidade personalizada ou criar perfis publicitários.
+
+O aplicativo não foi projetado para solicitar localização, câmera ou microfone para a realização das atividades descritas nesta versão.
+
+Quando o usuário exporta, imprime, copia ou compartilha um relatório ou arquivo, essa ação é iniciada pelo próprio usuário. O tratamento posterior do arquivo dependerá do serviço, aplicativo ou destino escolhido pelo usuário.
+
+5. CRIANÇAS E FAMÍLIAS
+O Alfabetizando TEA possui conteúdo direcionado ao público infantil e educacional. Por isso, a proteção de dados de crianças deve ser tratada com especial cuidado.
+
+Professores, pais e responsáveis devem evitar inserir nos campos livres informações desnecessárias ou excessivamente sensíveis sobre a criança. Recomenda-se utilizar apenas os dados necessários para o acompanhamento pedagógico.
+
+6. PUBLICIDADE
+A versão atual do Alfabetizando TEA não foi concebida com publicidade personalizada.
+
+Caso futuramente sejam incluídos anúncios, serviços de terceiros, analytics, armazenamento em nuvem, contas de usuário ou outras formas de coleta de dados, esta Política de Privacidade deverá ser atualizada antes da disponibilização dessa nova versão.
+
+7. SERVIÇOS DE TERCEIROS
+A versão web/PWA pode ser hospedada por um serviço de hospedagem na internet. O provedor de hospedagem e o navegador podem tratar dados técnicos necessários ao fornecimento do serviço, de acordo com suas próprias políticas e práticas.
+
+O desenvolvedor não utiliza essas informações para fins publicitários no aplicativo.
+
+8. SEGURANÇA
+São adotadas medidas compatíveis com a natureza educacional do aplicativo para reduzir riscos de acesso indevido às informações armazenadas no dispositivo.
+
+Como parte dos dados pode permanecer no armazenamento local do navegador ou do aplicativo, a exclusão de dados do navegador, a remoção do aplicativo ou a limpeza do armazenamento do dispositivo pode apagar informações e progresso salvos localmente.
+
+9. EXCLUSÃO DOS DADOS
+O usuário pode apagar o progresso ou remover perfis utilizando os recursos disponíveis no aplicativo, quando oferecidos. Também é possível excluir os dados locais removendo os dados do aplicativo/navegador no dispositivo.
+
+10. ALTERAÇÕES DESTA POLÍTICA
+Esta Política poderá ser atualizada quando houver mudanças relevantes no aplicativo, nas tecnologias utilizadas ou nas exigências legais e regulatórias.
+
+11. CONTATO
+Dúvidas sobre esta Política de Privacidade ou sobre o tratamento de dados podem ser encaminhadas ao responsável pelo aplicativo.
+
+Antes da publicação no Google Play, deve ser informado nesta seção um endereço de e-mail de contato válido do desenvolvedor.
+
+12. OBSERVAÇÃO IMPORTANTE
+Esta política descreve a versão atual do aplicativo. Se futuramente forem adicionados login, banco de dados remoto, sincronização em nuvem, publicidade, analytics, SDKs de terceiros ou coleta de dados pessoais, a política e a declaração de Segurança dos dados no Google Play deverão ser revisadas.
