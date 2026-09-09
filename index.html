@@ -1,4 +1,9 @@
 <!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#6557f5"><title>Alfabetizando TEA ULTRA 22K</title><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg"><link rel="stylesheet" href="style.css"></head><body>
+<div id="appSplash" class="appSplash" aria-label="Tela de abertura do Alfabetizando TEA">
+  <img src="tela_abertura.png" alt="Alfabetizando TEA - 22.000 atividades para aprender brincando">
+  <button id="skipSplash" type="button">Entrar no aplicativo</button>
+</div>
+
 <header><div class="wrap hero"><div><span class="pill">Plataforma adaptativa • Alfabetização • Matemática • TEA</span><h1>Alfabetizando TEA</h1><p>Versão ULTRA 22K com 22.000 atividades, 110 categorias, 200 atividades por categoria, avaliação diagnóstica, múltiplos perfis, mapa de habilidades, modo professor/aluno, relatórios e adaptação automática.</p><div class="actions"><button id="diagnosticBtn">Fazer diagnóstico</button><a href="#cats">Explorar atividades</a><button id="installBtn" hidden>Instalar aplicativo</button></div><small>Prof. Dr. Marcelo Marques de Araújo – UFPA</small></div><div class="heroCard"><b>110 categorias × 200 atividades</b><span>22.000 atividades organizadas em 4 blocos pedagógicos de 50.</span></div></div></header>
 <main class="wrap">
 <section class="stats"><article><b>22.000</b><span>atividades</span></article><article><b>110</b><span>categorias</span></article><article><b>200</b><span>por categoria</span></article><article><b>4</b><span>blocos pedagógicos</span></article></section>
@@ -80,7 +85,18 @@
 <section id="cats"><div class="head"><div><small>CONTEÚDO</small><h2>Escolha uma categoria</h2></div><input id="search" placeholder="Pesquisar categoria..."></div><div id="filters" class="filters"></div><div id="cards" class="cards"></div></section>
 <section id="practice"><div class="head"><div><small id="groupNow">ALFABETIZAÇÃO</small><h2 id="catNow">Rimas</h2><p id="skillNow">200 atividades em 4 blocos de 50</p></div><div class="levels"><button data-level="Inicial" class="active">Inicial</button><button data-level="Intermediário">Intermediário</button><button data-level="Avançado">Avançado</button></div></div>
 <div class="blocks"><button data-block="0" class="active">1. Básico</button><button data-block="1">2. Consolidação</button><button data-block="2">3. Aplicação</button><button data-block="3">4. Desafio</button></div>
-<div class="activity"><div class="bar"><i id="bar"></i></div><div class="meta"><span id="counter">Atividade 1 de 200</span><span id="blockLabel">Bloco 1: Básico</span><span id="adaptiveLabel">Adaptativo ativo</span></div><div class="prompt"><div id="emoji">🎵</div><h3 id="question"></h3></div><div id="answers"></div><div id="feedback"></div><div class="nav"><button id="favBtn">☆ Favoritar</button><button id="speakBtn">🔊 Ouvir</button><button id="prevBtn">← Anterior</button><button id="nextBtn">Próxima →</button></div></div></section>
+<div class="activity activityWithMascot">
+  <div class="activityMascotWrap">
+    <img id="activityMascot" class="activityMascot" src="mascote_menino.png" alt="Mascote do Alfabetizando TEA">
+    <div id="mascotBubble" class="mascotBubble">Vamos aprender juntos!</div>
+  </div>
+  <div class="bar"><i id="bar"></i></div>
+  <div class="meta"><span id="counter">Atividade 1 de 200</span><span id="blockLabel">Bloco 1: Básico</span><span id="adaptiveLabel">Adaptativo ativo</span></div>
+  <div class="prompt"><div id="emoji">🎵</div><h3 id="question"></h3></div>
+  <div id="answers"></div>
+  <div id="feedback"></div>
+  <div class="nav"><button id="favBtn">☆ Favoritar</button><button id="speakBtn">🔊 Ouvir</button><button id="prevBtn">← Anterior</button><button id="nextBtn">Próxima →</button></div>
+</div></section>
 <section class="dashboard"><div class="head"><div><small>PAINEL DE PROGRESSO</small><h2>Desempenho do aluno</h2></div></div><div class="dash"><article><b id="hits">0</b><span>acertos</span></article><article><b id="done">0</b><span>respondidas</span></article><article><b id="rate">0%</b><span>aproveitamento</span></article><article><b id="streak">0</b><span>sequência</span></article></div><div class="tablewrap"><table><thead><tr><th>Categoria</th><th>Respondidas</th><th>Acertos</th><th>%</th></tr></thead><tbody id="progressBody"></tbody></table></div><button id="resetBtn">Zerar progresso deste aluno</button></section>
 </main>
 <div id="profilesModal" class="modal" hidden><div class="modalCard"><button class="close" id="closeProfiles">×</button><h2>Gerenciar perfis</h2><div id="profilesList"></div><hr><input id="newName" placeholder="Nome ou apelido"><select id="newGoal"><option>Alfabetização</option><option>Matemática</option><option>Comunicação</option><option>Cognição e atenção</option><option>Autonomia</option><option>Aprendizagem geral</option></select><button id="addProfile">Adicionar perfil</button></div></div>

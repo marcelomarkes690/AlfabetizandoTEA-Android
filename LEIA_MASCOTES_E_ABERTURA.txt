@@ -1,0 +1,25 @@
+ALFABETIZANDO TEA — VERSÃO MAIS FÁCIL, SEM PASTA ASSETS
+
+Nesta versão, todos os arquivos ficam diretamente na raiz do repositório.
+
+Envie juntos para o GitHub:
+- index.html
+- style.css
+- script.js
+- sw.js
+- tela_abertura.png
+- mascote_menino.png
+- mascote_livro.png
+
+Os demais arquivos do pacote também podem ser enviados, mas os sete acima são os principais para ativar a tela de abertura e os mascotes.
+
+IMPORTANTE:
+1. Não envie apenas o ZIP para o GitHub Pages.
+2. Extraia o ZIP no computador.
+3. Selecione os arquivos extraídos.
+4. Arraste todos para a tela de upload do GitHub.
+5. Confirme as alterações.
+6. Aguarde o GitHub Pages ficar verde.
+7. Abra o site e pressione Ctrl+F5.
+
+A versão continua mantendo as 22.000 atividades.
